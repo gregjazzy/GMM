@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Succès académiques des élèves de Greg. M Mittel : admissions prestigieuses, scores SAT, témoignages et avis.">
+    <title>Succès académiques de mes élèves | Greg. M Mittel</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Lora:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .school-logo { filter: grayscale(1) brightness(1.2); height: 40px; max-width: 90px; object-fit: contain; }
+        .testimonial-card { background: rgba(20,20,30,0.85); border: 1.5px solid #d4af37; border-radius: 1rem; }
+        .success-card { background: rgba(30,30,40,0.95); border: 1.5px solid #d4af37; border-radius: 1rem; }
+    </style>
+</head>
+<body class="font-lora bg-cream text-navy">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-navy bg-opacity-95 text-white">
+        <div class="container mx-auto py-4 px-4">
+            <div class="flex justify-between items-center">
+                <div class="logo">
+                    <a href="index.html" class="text-2xl font-montserrat font-bold text-gold flex items-center">
+                        <span class="mr-2"><i class="fas fa-crown"></i></span>
+                        Greg. M Mittel
+                    </a>
+                </div>
+                <div class="flex items-center">
+                    <!-- Menu principal -->
+                    <div class="hidden md:flex space-x-8">
+                        <a href="index.html#services" class="hover:text-gold transition duration-300 text-sm uppercase tracking-wider font-montserrat">Nos Services</a>
+                        <a href="index.html#resultats" class="hover:text-gold transition duration-300 text-sm uppercase tracking-wider font-montserrat">Résultats</a>
+                        <a href="index.html#temoignages-carrousel" class="hover:text-gold transition duration-300 text-sm uppercase tracking-wider font-montserrat">Témoignages</a>
+                        <a href="index.html#approche" class="hover:text-gold transition duration-300 text-sm uppercase tracking-wider font-montserrat">Notre Approche</a>
+                        <a href="index.html#contact" class="hover:text-gold transition duration-300 text-sm uppercase tracking-wider font-montserrat">Contact</a>
+                    </div>
+                    <!-- Sélecteur de langue -->
+                    <div class="ml-8 relative">
+                        <button id="languageSelector" class="flex items-center space-x-1 hover:text-gold transition duration-300">
+                            <span>FR</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="languageMenu" class="absolute right-0 mt-2 w-28 bg-white text-navy rounded-md shadow-lg hidden">
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100" data-lang="fr">Français</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100" data-lang="en">English</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100" data-lang="ar">العربية</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100" data-lang="de">Deutsch</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100" data-lang="pt">Português</a>
+                        </div>
+                    </div>
+                    <!-- Menu burger pour mobile -->
+                    <div class="md:hidden ml-4">
+                        <button id="mobileMenuButton" class="text-white focus:outline-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Menu mobile -->
+            <div id="mobileMenu" class="md:hidden hidden mt-6 pb-4">
+                <a href="index.html#services" class="block py-3 hover:text-gold transition duration-300 border-b border-gray-700">Nos Services</a>
+                <a href="index.html#resultats" class="block py-3 hover:text-gold transition duration-300 border-b border-gray-700">Résultats</a>
+                <a href="index.html#temoignages-carrousel" class="block py-3 hover:text-gold transition duration-300 border-b border-gray-700">Témoignages</a>
+                <a href="index.html#approche" class="block py-3 hover:text-gold transition duration-300 border-b border-gray-700">Notre Approche</a>
+                <a href="index.html#contact" class="block py-3 hover:text-gold transition duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bannière Principale (style index.html) -->
+    <section id="hero-succes" class="relative min-h-screen flex items-center justify-center parallax-section">
+        <div class="absolute inset-0 bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1519671482727-c4d4cf0bf178?auto=format&fit=crop&w=1950&q=80');"></div> <!-- Image de fond différente pour la page succès -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+        
+        <div class="container mx-auto px-4 z-10 py-24">
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up" data-aos-delay="200">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold mb-6 leading-tight" style="color:#fff; text-shadow:0 2px 12px rgba(0,0,0,0.7);">
+                    Les Clés de la Réussite
+                </h1>
+                <p class="text-xl md:text-2xl text-white mb-10 max-w-3xl mx-auto font-light leading-relaxed">
+                    Découvrez comment nos élèves atteignent l'excellence et intègrent les institutions les plus prestigieuses au monde.
+                </p>
+                <a href="#chiffres-cles-succes" class="inline-block px-10 py-4 bg-gold text-black font-montserrat font-bold text-lg rounded-full shadow-lg hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105">
+                    Voir les chiffres clés
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chiffres clés -->
+    <section id="chiffres-cles-succes" class="py-12 bg-navy">
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center" data-aos="fade-up">
+            <div class="flex flex-col items-center">
+                <span class="text-5xl font-bold text-gold mb-2">85&nbsp;%</span>
+                <span class="text-lg font-montserrat">intègrent le Top 30 mondial</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-5xl font-bold text-gold mb-2">1520</span>
+                <span class="text-lg font-montserrat">Score SAT moyen</span>
+            </div>
+            <a href="https://www.superprof.fr/referent-cours-particulier-paris-prof-grand-lycee-engage-contractuellement-resultats.html" target="_blank" rel="noopener" class="group flex flex-col items-center justify-center bg-black/80 border-2 border-gold rounded-2xl shadow-lg px-8 py-6 transition-all duration-300 hover:bg-gold/90 hover:border-gold hover:scale-105 cursor-pointer" style="text-decoration:none;">
+                <span class="text-5xl font-bold text-gold mb-2 group-hover:text-black transition">5/5</span>
+                <span class="text-lg font-montserrat text-white group-hover:text-black transition">Avis Superprof (374 avis)</span>
+            </a>
+        </div>
+    </section>
+    <div class="mx-auto w-24 h-1 bg-gold rounded-full mb-12"></div>
+    <!-- Success stories -->
+    <section class="max-w-5xl mx-auto mb-16 px-4" data-aos="fade-up">
+        <h2 class="text-3xl font-playfair font-bold text-gold mb-8 text-center uppercase tracking-widest">Success stories</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="success-card p-6 flex flex-col gap-2">
+                <div class="flex items-center gap-3 mb-2"><i class="fas fa-user-graduate text-gold text-2xl"></i><span class="font-playfair text-xl text-gold">Camille – Stanford</span></div>
+                <p class="text-white/90">Admise à Stanford à 18 ans, Camille a mené un projet entrepreneurial financé par un incubateur international.</p>
+            </div>
+            <div class="success-card p-6 flex flex-col gap-2">
+                <div class="flex items-center gap-3 mb-2"><i class="fas fa-user-graduate text-gold text-2xl"></i><span class="font-playfair text-xl text-gold">Théo – Polytechnique</span></div>
+                <p class="text-white/90">Théo a intégré l'École Polytechnique après un parcours d'excellence en mathématiques et physique, avec un score SAT de 1560.</p>
+            </div>
+        </div>
+    </section>
+    <div class="mx-auto w-24 h-1 bg-gold rounded-full mb-12"></div>
+    <!-- Témoignages -->
+    <section class="max-w-5xl mx-auto mb-16 px-4" data-aos="fade-up">
+        <h2 class="text-3xl font-playfair font-bold text-gold mb-8 text-center uppercase tracking-widest">Témoignages</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="testimonial-card p-6 flex flex-col gap-2">
+                <div class="flex items-center gap-3 mb-2"><i class="fas fa-quote-left text-gold"></i><span class="font-montserrat font-bold text-gold">Parent, Paris</span></div>
+                <p class="italic text-white/90">"Grâce à Greg. M Mittel, mon fils a intégré Oxford et a lancé sa première application à 17 ans."</p>
+            </div>
+            <div class="testimonial-card p-6 flex flex-col gap-2">
+                <div class="flex items-center gap-3 mb-2"><i class="fas fa-quote-left text-gold"></i><span class="font-montserrat font-bold text-gold">Élève, Genève</span></div>
+                <p class="italic text-white/90">"Un accompagnement sur-mesure qui a fait la différence pour l'admission à Harvard."</p>
+            </div>
+        </div>
+    </section>
+    <div class="mx-auto w-24 h-1 bg-gold rounded-full mb-12"></div>
+    <!-- CTA final -->
+    <section class="py-12 bg-gradient-to-r from-gold/10 via-black/80 to-gold/10 text-center" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-playfair font-bold text-gold mb-6">Votre enfant aussi peut réussir !</h2>
+        <a href="index.html#contact" class="inline-block px-10 py-4 bg-gold text-black font-montserrat font-bold text-lg rounded-full shadow-lg hover:bg-white hover:text-black transition-all duration-300">Prendre rendez-vous</a>
+    </section>
+    <footer class="py-8 bg-black text-gold text-center font-montserrat text-sm">
+        © 2025 Greg. M Mittel. Tous droits réservés.
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

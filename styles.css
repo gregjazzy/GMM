@@ -1,0 +1,621 @@
+/* Couleurs personnalisées */
+:root {
+    --navy: #0c1b33;
+    --cream: #f9f7f4;
+    --gold: #d4af37;
+    --gold-light: #f2d272;
+    --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f2d272 100%);
+    --light-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --medium-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    --soft-white: #f5f5f5;
+}
+
+/* Styles de base */
+body {
+    font-family: 'Lora', serif;
+    background-color: var(--cream);
+    color: var(--navy);
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.font-lora {
+    font-family: 'Lora', serif;
+}
+
+.font-playfair {
+    font-family: 'Playfair Display', serif;
+}
+
+.text-navy {
+    color: var(--navy);
+}
+
+.text-gold {
+    color: var(--gold);
+}
+
+.bg-navy {
+    background-color: var(--navy);
+}
+
+.bg-cream {
+    background-color: var(--cream);
+}
+
+.bg-gold {
+    background: var(--gold-gradient);
+}
+
+.border-gold {
+    border-color: var(--gold);
+}
+
+/* Arc doré animation */
+.golden-arc path {
+    stroke-dasharray: 240;
+    stroke-dashoffset: 240;
+    animation: drawArc 3s forwards;
+}
+
+@keyframes drawArc {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Parallaxe sections */
+.parallax-section {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.parallax-section > div:first-child {
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Animation pour les statistiques */
+.stat-bar {
+    width: 0;
+    transition: width 2s ease-in-out;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--gold-gradient);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* Carte d'activité */
+.activity-card {
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: var(--light-shadow);
+}
+
+.activity-card:hover {
+    transform: scale(1.05);
+    box-shadow: var(--medium-shadow);
+    border-color: rgba(212, 175, 55, 0.5);
+}
+
+.activity-card::after {
+    content: "✨";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.activity-card:hover::after {
+    opacity: 1;
+}
+
+/* Carte de témoignage avec effet flip */
+.flip-card {
+    perspective: 1000px;
+    height: 280px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: var(--light-shadow);
+    border-radius: 0.5rem;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.flip-card-front {
+    z-index: 2;
+    background: linear-gradient(to bottom, #ffffff, #f5f5f5);
+    border-left: 4px solid var(--gold);
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(to bottom, #f8f8f8, #ececec);
+    border-left: 4px solid var(--navy);
+}
+
+/* Animations pour apparition des éléments */
+[data-aos] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Menu déroulant des langues */
+#languageSelector:hover + #languageMenu,
+#languageMenu:hover {
+    display: block;
+}
+
+/* Support pour l'arabe (RTL) */
+[dir="rtl"] {
+    text-align: right;
+    font-family: 'Tajawal', 'Lora', serif;
+}
+
+/* Media queries pour responsive */
+@media (max-width: 768px) {
+    .flip-card {
+        height: 320px;
+    }
+    
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    #accueil h1 {
+        font-size: 2.5rem !important;
+        padding: 0 1rem;
+    }
+    
+    #accueil p {
+        font-size: 1.125rem;
+    }
+}
+
+/* Animation pour faire apparaître les éléments au défilement */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation du bouton */
+button[type="submit"],
+a.bg-gold,
+a.bg-navy {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover,
+a.bg-gold:hover,
+a.bg-navy:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+button[type="submit"]::after,
+a.bg-gold::after,
+a.bg-navy::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+button[type="submit"]:hover::after,
+a.bg-gold:hover::after,
+a.bg-navy:hover::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+/* Navigation sticky avec transparence */
+nav {
+    transition: all 0.3s ease;
+}
+
+nav.scrolled {
+    background-color: rgba(12, 27, 51, 0.95) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation de chargement de la page */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--navy);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.page-transition.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    border-top-color: var(--gold);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Effet hover sur les liens du menu */
+nav a {
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--gold);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Effet de survol sur les cartes */
+.bg-white.bg-opacity-90 {
+    transition: all 0.3s ease;
+    border-width: 1px;
+    box-shadow: var(--light-shadow);
+}
+
+.bg-white.bg-opacity-90:hover {
+    border-color: var(--gold);
+    border-width: 2px;
+    box-shadow: var(--medium-shadow);
+}
+
+/* Stylisation des sélecteurs de formulaire */
+input, textarea {
+    transition: all 0.3s ease;
+    border: 2px solid transparent !important;
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--gold) !important;
+    outline: none;
+    background-color: white !important;
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15) !important;
+}
+
+/* Améliorations pour sections */
+section {
+    position: relative;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--gold-gradient);
+    border-radius: 2px;
+    opacity: 0.7;
+}
+
+/* Amélioration des titres */
+h2, h3 {
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40%;
+    height: 3px;
+    background: var(--gold-gradient);
+    border-radius: 2px;
+}
+
+/* Background design elements */
+.bg-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4af37' fill-opacity='0.05' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* Animation d'écriture pour le titre principal */
+.text-focus-in {
+    animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@keyframes text-focus-in {
+    0% {
+        filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+/* Animation pour les champs de formulaire invalides */
+.shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+/* Section accueil et bannière */
+#accueil h1 {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 1000px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+#accueil h1::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: var(--gold-gradient);
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+#accueil p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Style pour les cartes de service */
+#accueil .grid > div {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 0.375rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+#accueil .grid > div:hover {
+    transform: translateY(-5px);
+    border-color: rgba(212, 175, 55, 0.5);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+#accueil .grid h3 {
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+}
+
+#accueil .grid p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+}
+
+/* Style des boutons */
+#accueil a.rounded {
+    border-radius: 0.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+}
+
+#accueil a.bg-gold {
+    background-color: var(--gold);
+    color: #000;
+}
+
+#accueil a.bg-gold:hover {
+    background-color: var(--gold-light);
+}
+
+#accueil blockquote {
+    font-style: italic;
+    padding-left: 1rem;
+    border-left: 2px solid var(--gold);
+    color: rgba(255, 255, 255, 0.9);
+    margin: 1.5rem 0;
+    max-width: 36rem;
+}
+
+/* Styles pour le carrousel SwiperJS */
+.testimonial-carousel-container {
+    /* Le bg-gray-100 et py-16/20 sont appliqués via Tailwind directement dans le HTML */
+}
+
+.testimonial-swiper .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 380px; /* Réduit pour moins de hauteur globale */
+    padding-bottom: 50px; /* Espace pour la pagination, légèrement réduit */
+}
+
+.testimonial-swiper .swiper-pagination-bullet {
+    background-color: var(--gold); /* Couleur gold */
+    opacity: 0.5;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: scale(0.8);
+}
+
+.testimonial-swiper .swiper-pagination-bullet-active {
+    opacity: 1;
+    transform: scale(1.2);
+    background-color: var(--gold); /* S'assurer que la couleur active est bien gold */
+}
+
+.testimonial-swiper .testimonial-pagination {
+    bottom: 10px !important; /* Remonté un peu plus la pagination */
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+.testimonial-swiper .testimonial-button-prev,
+.testimonial-swiper .testimonial-button-next {
+    color: var(--gold); /* Couleur gold */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px; /* Taille explicite pour le clic */
+    height: 44px; /* Taille explicite pour le clic */
+    /* background-color: rgba(0,0,0,0.1); /* Optionnel: léger fond pour meilleure visibilité */
+    /* border-radius: 50%; */
+}
+
+.testimonial-swiper .testimonial-button-prev:hover,
+.testimonial-swiper .testimonial-button-next:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+    /* background-color: rgba(0,0,0,0.2); */
+}
+
+.testimonial-swiper .testimonial-button-prev {
+    left: 20px; /* Ajustement pour le padding de la section */
+}
+
+.testimonial-swiper .testimonial-button-next {
+    right: 20px; /* Ajustement pour le padding de la section */
+}
+
+.testimonial-swiper .testimonial-button-next::after,
+.testimonial-swiper .testimonial-button-prev::after {
+    font-size: 1.5rem; /* Réduit un peu la taille des flèches */
+    font-weight: bold;
+}
+
+/* Styles pour Tailwind aspect-ratio (si non inclus par défaut avec la version de Tailwind) */
+.aspect-w-16 { position: relative; padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%); }
+.aspect-w-16 > * { position: absolute; height: 100%; width: 100%; top: 0; right: 0; bottom: 0; left: 0; }
+.aspect-h-9 { --tw-aspect-h: 9; } 

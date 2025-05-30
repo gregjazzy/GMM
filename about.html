@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="À propos de Greg M. Mittelette, professeur de mathématiques et physique. Formation Saclay, Centrale Lyon, MBA Pennsylvania. Expertise en programmation et entrepreneurship.">
+    <meta name="keywords" content="Greg Mittelette, professeur mathématiques, prof physique Paris, formation programmation, mentor entrepreneurship, Saclay, Centrale Lyon">
+    <meta name="author" content="Greg M. Mittelette">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.gregmittel.com/about.html">
+    <meta property="og:title" content="À propos de Greg M. Mittel | Professeur & Mentor">
+    <meta property="og:description" content="Découvrez le parcours de Greg M. Mittelette : formation d'élite, 1600 élèves accompagnés, expertise en mathématiques, physique et entrepreneurship.">
+    <meta property="og:image" content="https://www.gregmittel.com/images/Greg.jpg">
+    
+    <title>À propos de Greg M. Mittel | Professeur Mathématiques, Physique & Entrepreneurship</title>
+    <link rel="canonical" href="https://www.gregmittel.com/about.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .about-page {
+            background: linear-gradient(135deg, rgba(0,0,0,0.95), rgba(13,13,15,0.9));
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+        
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .about-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .about-header h1 {
+            font-size: 2.5rem;
+            color: #FF69B4;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .profile-section {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            background: rgba(13, 13, 15, 0.8);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 105, 180, 0.3);
+        }
+        
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #FF69B4;
+        }
+        
+        .profile-content h2 {
+            color: #FF69B4;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .profile-quote {
+            font-style: italic;
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 105, 180, 0.1);
+            border-left: 4px solid #FF69B4;
+        }
+        
+        .about-section {
+            background: rgba(13, 13, 15, 0.8);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 105, 180, 0.3);
+        }
+        
+        .about-section h3 {
+            color: #FF69B4;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .about-section h4 {
+            color: #8A8AFF;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+        
+        .about-section p, .about-section li {
+            color: #e0e0e0;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .about-section ul {
+            padding-left: 1.5rem;
+        }
+        
+        .about-section li {
+            margin-bottom: 0.3rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.15), rgba(138, 138, 255, 0.15));
+            border: 2px solid rgba(255, 105, 180, 0.4);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .advantage-item {
+            background: rgba(255, 105, 180, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #FF69B4;
+        }
+        
+        .advantage-item h5 {
+            color: #FF69B4;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            background: rgba(138, 138, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #8A8AFF;
+        }
+        
+        .stat-label {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+        }
+        
+        .contact-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .contact-cta p {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-cta .btn {
+            background: linear-gradient(135deg, #FF69B4, #8A8AFF);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: transform 0.3s ease;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-cta .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .profile-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .about-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="theme-macrocosmos">
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html" class="logo">GMM</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="about.html" class="active">À propos</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#resultats-maths">Résultats</a></li>
+                    <li><a href="temoignages.html">Témoignages</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="index.html#contact" class="btn btn-header-action">Prendre RDV</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="about-page">
+        <div class="about-container">
+            <div class="about-header">
+                <h1>À PROPOS DE GREG</h1>
+            </div>
+
+            <div class="profile-section">
+                <img src="images/Greg.jpg" alt="Greg M. Mittelette - Professeur de mathématiques, physique et programmation" class="profile-image">
+                <div class="profile-content">
+                    <h2>Greg M. Mittel</h2>
+                    <div class="profile-quote">
+                        "Non scholae, sed vitae discimus" – Sénèque
+                    </div>
+                    <p><em>"Nous n'apprenons pas pour l'école, mais pour la vie."</em> Cette idée intemporelle guide ma mission.</p>
+                    
+                    <p>Mais aujourd'hui, les changements s'accélèrent et l'école ne suffit plus à préparer pleinement à la vie réelle et à l'environnement de demain.</p>
+                    
+                    <p>Chaque parent partage, comme moi avec mes propres enfants, ce dilemme fondamental : <strong>l'école répond-elle aux préoccupations du monde tel qu'il est et tel qu'il sera ?</strong></p>
+                    
+                    <p>La réponse est non.</p>
+                    
+                    <p>Dans un univers où l'intelligence artificielle, l'entrepreneuriat et l'innovation redéfinissent les codes, nos enfants ont besoin d'une préparation qui va au-delà des programmes traditionnels.</p>
+                    
+                    <p>C'est exactement ce que je propose aux familles qui me font confiance et aux 1600 élèves que j'ai suivis avec succès.</p>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <h3>🎯 Ma Vision : L'Excellence Complète</h3>
+                <p>À côté de l'excellence académique, je crois qu'une <strong>excellence pratique</strong>, orientée vers les projets et l'esprit entrepreneurial, est indispensable. C'est pourquoi mon leitmotiv – <strong>excellence académique, vision stratégique et entrepreneuriat</strong> – vise à doter chaque élève des outils pour réussir dans un monde en constante évolution.</p>
+            </div>
+
+            <div class="about-section">
+                <h3>🔬 Mon Approche Pédagogique</h3>
+                <div class="highlight-box">
+                    <h4>Une Conviction Profonde</h4>
+                    <p>Chaque enfant a sa propre manière d'apprendre. En identifiant et en utilisant cette singularité, je transmets de manière efficace et motivante, à travers des exemples concrets.</p>
+                </div>
+                
+                <p>Je favorise la compréhension, les méthodes et la vision à long terme, pour des <strong>résultats académiques solides</strong>, une <strong>autonomie durable</strong> et un <strong>esprit entrepreneurial</strong>.</p>
+            </div>
+
+            <div class="about-section">
+                <h3>🎓 Formation & Parcours</h3>
+                <p>Une formation solide et une expérience internationale au service de ma pédagogie :</p>
+                <div class="highlight-box">
+                    <p>Pour découvrir mon parcours complet, ma formation et mon expérience professionnelle :</p>
+                    <a href="https://www.linkedin.com/in/greg-mittelette-56601812/?originalSubdomain=fr" target="_blank" style="color: #FF69B4; font-weight: 600; text-decoration: none;">
+                        📎 Consultez mon profil LinkedIn
+                    </a>
+                </div>
+                
+                <h4>🎵 Autres Passions</h4>
+                <ul>
+                    <li><strong>Tennis (ex -2/6)</strong></li>
+                    <li><strong>Jazz</strong></li>
+                    <li><strong>Innovation pédagogique</strong></li>
+                </ul>
+            </div>
+
+            <div class="contact-cta">
+                <h3>🚀 Prêt à transformer vos ambitions en réalité ?</h3>
+                <p>Rejoignez-moi pour un accompagnement personnalisé qui allie excellence académique et esprit entrepreneurial.</p>
+                <a href="index.html#contact" class="btn">Contactez-moi dès aujourd'hui !</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer-macro">
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column footer-logo-column">
+                    <a href="index.html" class="logo footer-logo">GMM</a>
+                    <p>Mentorat d'élite.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <p><a href="mailto:gregjazzy@gmail.com">gregjazzy@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Greg. M Mittel. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script>
+</body>
+</html> 

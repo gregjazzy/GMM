@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Témoignages élèves et parents - Cours particuliers de mathématiques et physique avec Greg M. Mittel. 374 avis 5 étoiles sur Superprof.">
+    <meta name="keywords" content="témoignages cours particuliers, avis Greg Mittel, Superprof avis, témoignages élèves mathématiques physique">
+    <meta name="author" content="Greg M. Mittelette">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.gregmittel.com/temoignages.html">
+    <meta property="og:title" content="Témoignages | Greg M. Mittel - 374 avis 5 étoiles">
+    <meta property="og:description" content="Découvrez les témoignages de nos élèves et parents. Plus de 374 avis 5 étoiles sur Superprof pour nos cours de mathématiques et physique.">
+    <meta property="og:image" content="https://www.gregmittel.com/images/Greg.jpg">
+    
+    <title>Témoignages | Greg M. Mittel - Avis Élèves & Parents</title>
+    <link rel="canonical" href="https://www.gregmittel.com/temoignages.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .testimonials-page {
+            background: linear-gradient(135deg, rgba(0,0,0,0.95), rgba(13,13,15,0.9));
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+        
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .testimonials-header h1 {
+            font-size: 2.5rem;
+            color: #FF69B4;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .testimonials-section {
+            background: rgba(13, 13, 15, 0.8);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 105, 180, 0.3);
+            width: 100%;
+            display: block;
+        }
+        
+        .testimonials-section h2 {
+            color: #FF69B4;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .video-testimonials-grid {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .video-testimonial-item {
+            flex: 1;
+            background: rgba(13, 13, 15, 0.6);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 105, 180, 0.2);
+            max-height: 350px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .video-testimonial-item h3 {
+            color: #8A8AFF;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .video-testimonial-item video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .video-testimonial-item p {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        .written-testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .superprof-highlight {
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.15), rgba(138, 138, 255, 0.15));
+            border: 2px solid rgba(255, 105, 180, 0.4);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .superprof-highlight h2 {
+            color: #FF69B4;
+            margin-bottom: 1rem;
+        }
+        
+        .superprof-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .superprof-stat {
+            text-align: center;
+        }
+        
+        .superprof-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #8A8AFF;
+        }
+        
+        .superprof-label {
+            color: #e0e0e0;
+            font-size: 1rem;
+        }
+        
+        .superprof-btn {
+            background: linear-gradient(135deg, #FF69B4, #8A8AFF);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: transform 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .superprof-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .video-testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .written-testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .superprof-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="theme-macrocosmos">
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html" class="logo">GMM</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#resultats-maths">Résultats</a></li>
+                    <li><a href="temoignages.html" class="active">Témoignages</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="index.html#contact" class="btn btn-header-action">Prendre RDV</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="testimonials-page">
+        <div class="testimonials-container">
+            <div class="testimonials-header">
+                <h1>TÉMOIGNAGES DE NOS ÉLÈVES</h1>
+                <p style="color: #e0e0e0; font-size: 1.2rem;">Découvrez les retours authentiques de nos élèves et leurs parents</p>
+            </div>
+
+            <!-- Vidéos -->
+            <div class="video-testimonials-grid" style="margin-bottom: 3rem;">
+                <div class="video-testimonial-item">
+                    <h3>Maelie - Préparation SAT</h3>
+                    <video controls>
+                        <source src="videos/Maelie.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la lecture de vidéos.
+                    </video>
+                    <p style="color: #e0e0e0;">Témoignage de Maelie sur sa préparation au SAT et ses résultats.</p>
+                </div>
+
+                <div class="video-testimonial-item">
+                    <h3>Démonstration complète - Eiklil</h3>
+                    <video controls>
+                        <source src="videos/FullEiklil.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la lecture de vidéos.
+                    </video>
+                    <p style="color: #e0e0e0;">Démonstration complète des compétences acquises par Eiklil après 2 mois de formation.</p>
+                </div>
+            </div>
+
+            <!-- Témoignages Vocaux -->
+            <div class="testimonials-section">
+                <h2>🎙️ Témoignages Vocaux</h2>
+                <div class="audio-testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem;">
+                    <div style="background: rgba(13, 13, 15, 0.6); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(255, 105, 180, 0.2);">
+                        <h3 style="color: #8A8AFF; margin-bottom: 1rem;">Thomas B. - Score SAT 1490</h3>
+                        <audio controls style="width: 100%; margin-bottom: 1rem;">
+                            <source src="audio/temoignage-thomas.mp3" type="audio/mpeg">
+                            Votre navigateur ne supporte pas la lecture audio.
+                        </audio>
+                        <p style="color: #e0e0e0;">Témoignage audio de Thomas sur sa progression au SAT.</p>
+                    </div>
+                    
+                    <div style="background: rgba(13, 13, 15, 0.6); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(255, 105, 180, 0.2);">
+                        <h3 style="color: #8A8AFF; margin-bottom: 1rem;">Emma L. - Score SAT 1510</h3>
+                        <audio controls style="width: 100%; margin-bottom: 1rem;">
+                            <source src="audio/temoignage-emma.mp3" type="audio/mpeg">
+                            Votre navigateur ne supporte pas la lecture audio.
+                        </audio>
+                        <p style="color: #e0e0e0;">Retour d'Emma sur son expérience de préparation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Témoignages Écrits avec Photos -->
+            <div class="testimonials-section">
+                <h2>📝 Témoignages de nos Familles</h2>
+                <div class="written-testimonials-grid">
+                    <div class="photo-testimonial">
+                        <img src="images/sasrah.jpg" alt="Sarah K. - Mère d'élève satisfaite des cours de mathématiques de Greg Mittel" class="reviewer-photo" style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 1rem;">
+                        <div class="testimonial-content">
+                            <div class="rating" style="margin-bottom: 0.5rem;">
+                                <span class="star" style="color: #FFD700;">★</span>
+                                <span class="star" style="color: #FFD700;">★</span>
+                                <span class="star" style="color: #FFD700;">★</span>
+                                <span class="star" style="color: #FFD700;">★</span>
+                                <span class="star" style="color: #FFD700;">★</span>
+                            </div>
+                            <p class="review-text" style="color: #e0e0e0; margin-bottom: 1rem;">"Greg suit Max depuis la 3ème. Après des difficultés à l'EJM, les notes sont remontées en flèche en 2 mois. Au-delà des résultats, son accompagnement global a permis à Max de gagner en maturité. Un excellent professeur et un très bon accompagnant."</p>
+                            <p class="reviewer-name" style="color: #FF69B4; font-weight: 600;">Sarah K.</p>
+                        </div>
+                    </div>
+
+                    <div class="photo-testimonial">
+                        <img src="images/Marie.jpg" alt="Marie L. - Élève en première au lycée Franklin" class="reviewer-photo" style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 1rem;">
+                        <div class="testimonial-content">
+                            <div class="rating" style="margin-bottom: 0.5rem;">
+                                <span class="star" style="color: #FFD700;">★</span>
+                                <span class="star" style="color: #FFD700;">★</span>
+                                <span class="star" style="color: #FFD700;">★</span>
+                                <span class="star" style="color: #FFD700;">★</span>
+                                <span class="star" style="color: #FFD700;">★</span>
+                            </div>
+                            <p class="review-text" style="color: #e0e0e0; margin-bottom: 1rem;">"Explications très claires et professeur vraiment très agréable. Recommandé par ma cousine et vraiment parfait (je suis en première à Franklin)."</p>
+                            <p class="reviewer-name" style="color: #FF69B4; font-weight: 600;">Marie L.</p>
+                        </div>
+                    </div>
+
+                    <div class="photo-testimonial">
+                        <img src="images/Martin.png" alt="Thomas B. - Élève ayant obtenu 480 au SAT" class="reviewer-photo" style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 1rem;">
+                        <div class="testimonial-content">
+                            <div class="rating" style="margin-bottom: 0.5rem;">
+                                <span class="star" style="color: #FFD700;">★</span>
+                                <span class="star" style="color: #FFD700;">★</span>
+                                <span class="star" style="color: #FFD700;">★</span>
+                                <span class="star" style="color: #FFD700;">★</span>
+                                <span class="star" style="color: #FFD700;">★</span>
+                            </div>
+                            <p class="review-text" style="color: #e0e0e0; margin-bottom: 1rem;">"480 au SAT et un excellent dossier. Comme dit Greg le travail paye toujours. Merci encore."</p>
+                            <p class="reviewer-name" style="color: #FF69B4; font-weight: 600;">Thomas B.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Superprof -->
+            <div class="superprof-highlight">
+                <h2>🌟 Tous nos avis sur Superprof</h2>
+                <p style="color: #e0e0e0; margin-bottom: 1.5rem;">Découvrez l'ensemble de nos témoignages authentiques</p>
+                
+                <div class="superprof-stats">
+                    <div class="superprof-stat">
+                        <div class="superprof-number">374</div>
+                        <div class="superprof-label">Avis clients</div>
+                    </div>
+                    <div class="superprof-stat">
+                        <div class="superprof-number">5/5</div>
+                        <div class="superprof-label">Note moyenne</div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: center; margin: 1rem 0;">
+                    <span class="star" style="color: #FFD700; font-size: 2rem;">★</span>
+                    <span class="star" style="color: #FFD700; font-size: 2rem;">★</span>
+                    <span class="star" style="color: #FFD700; font-size: 2rem;">★</span>
+                    <span class="star" style="color: #FFD700; font-size: 2rem;">★</span>
+                    <span class="star" style="color: #FFD700; font-size: 2rem;">★</span>
+                </div>
+                
+                <a href="https://www.superprof.fr/referent-cours-particulier-paris-prof-grand-lycee-engage-contractuellement-resultats.html" target="_blank" class="superprof-btn">
+                    Voir tous les avis sur Superprof
+                </a>
+                
+                <p style="color: #e0e0e0; margin-top: 1rem; font-style: italic;">100% d'avis authentiques et vérifiés par Superprof</p>
+            </div>
+
+            <!-- Témoignages Entrepreneurship -->
+            <div class="testimonials-section">
+                <h2>🚀 Témoignages Entrepreneurship</h2>
+                <div class="written-testimonials-grid">
+                    <div style="background: rgba(255, 105, 180, 0.1); padding: 1.5rem; border-radius: 12px; border-left: 4px solid #FF69B4;">
+                        <h3 style="color: #8A8AFF; margin-bottom: 1rem;">Sarah L. - Promotion 2023</h3>
+                        <p style="color: #e0e0e0; font-style: italic; margin-bottom: 1rem;">"Le programme entrepreneuriat m'a donné les outils et la confiance nécessaires pour lancer ma startup. Aujourd'hui, nous avons levé des fonds et recruté une équipe de 5 personnes."</p>
+                        <div style="color: #FF69B4; font-weight: 600;">Startup lancée avec succès</div>
+                    </div>
+
+                    <div style="background: rgba(138, 138, 255, 0.1); padding: 1.5rem; border-radius: 12px; border-left: 4px solid #8A8AFF;">
+                        <h3 style="color: #FF69B4; margin-bottom: 1rem;">Alexis - Projet "IA va-t-elle voler votre job ?"</h3>
+                        <p style="color: #e0e0e0; font-style: italic; margin-bottom: 1rem;">"Mon site sur l'IA et l'emploi a dépassé 40 000 visites. Greg m'a appris à transformer une idée en projet concret et impactant."</p>
+                        <div style="color: #8A8AFF; font-weight: 600;">Plus de 40 000 visites</div>
+                    </div>
+
+                    <div style="background: rgba(255, 105, 180, 0.1); padding: 1.5rem; border-radius: 12px; border-left: 4px solid #FF69B4;">
+                        <h3 style="color: #8A8AFF; margin-bottom: 1rem;">Prix GEM Challenge 2024</h3>
+                        <p style="color: #e0e0e0; font-style: italic; margin-bottom: 1rem;">"Remporter le prix du projet 2024 au GEM Challenge a été le couronnement de months de travail. L'accompagnement de Greg a été déterminant."</p>
+                        <div style="color: #FF69B4; font-weight: 600;">Projet primé</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div style="text-align: center; margin-top: 3rem;">
+                <h2 style="color: #FF69B4; margin-bottom: 1rem; font-size: 2.2rem;">🎯 Vous aussi, rejoignez nos élèves !</h2>
+                <p style="color: #e0e0e0; margin-bottom: 2rem; font-size: 1.2rem;">Découvrez notre approche unique et obtenez des résultats exceptionnels</p>
+                <a href="index.html#contact" style="
+                    background: linear-gradient(135deg, #FF69B4, #8A8AFF);
+                    color: white;
+                    padding: 1.5rem 3rem;
+                    border-radius: 15px;
+                    text-decoration: none;
+                    font-weight: 700;
+                    font-size: 1.3rem;
+                    display: inline-block;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    border: 2px solid transparent;
+                " onmouseover="this.style.transform='translateY(-3px) scale(1.05)'; this.style.boxShadow='0 12px 35px rgba(255, 105, 180, 0.6)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 25px rgba(255, 105, 180, 0.4)'">
+                    Prendre rendez-vous
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer-macro">
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column footer-logo-column">
+                    <a href="index.html" class="logo footer-logo">GMM</a>
+                    <p>Mentorat d'élite.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="temoignages.html">Témoignages</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <p><a href="mailto:gregjazzy@gmail.com">gregjazzy@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Greg. M Mittel. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script>
+</body>
+</html> 
