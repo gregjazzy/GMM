@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Boot Camp Premium avec Greg - 11 jours d'excellence : Mathématiques, Tennis, Natation, Entrepreneurship et développement d'applications dans un cadre privilégié.">
+    <meta name="keywords" content="boot camp premium, stage maths tennis, programme entrepreneurship, développement applications, stage juillet, cours intensifs">
+    <title>Boot Camp Premium | Greg</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .premium-hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #2c3e50 100%);
+            padding: 4rem 0;
+            text-align: center;
+            color: var(--cream);
+        }
+
+        .premium-badge {
+            background: linear-gradient(45deg, var(--gold), #DAA520);
+            color: var(--navy);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .premium-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .premium-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .premium-dates {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .date-option {
+            background: var(--cream);
+            color: var(--navy);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .date-option:hover {
+            transform: translateY(-5px);
+        }
+
+        .program-carousel {
+            margin: 4rem 0;
+            position: relative;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .carousel-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .carousel-slide {
+            display: none;
+            position: relative;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-nav:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .carousel-nav.prev { left: 20px; }
+        .carousel-nav.next { right: 20px; }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .indicator.active {
+            background: var(--gold);
+        }
+
+        .premium-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .feature-card {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            color: var(--navy);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .schedule-section {
+            background: linear-gradient(135deg, var(--cream) 0%, #f8f9fa 100%);
+            padding: 4rem 0;
+            margin: 4rem 0;
+            border-radius: 30px;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .schedule-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--gold);
+        }
+
+        .time-slot {
+            color: var(--navy);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .activity {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .premium-cta {
+            background: linear-gradient(135deg, var(--navy) 0%, #2c3e50 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: var(--cream);
+            border-radius: 30px;
+            margin: 4rem 0;
+        }
+
+        .cta-price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--gold);
+            margin: 1rem 0;
+        }
+
+        .cta-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-feature {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--gold);
+        }
+
+        @media (max-width: 768px) {
+            .premium-title { font-size: 2rem; }
+            .premium-dates { flex-direction: column; align-items: center; }
+            .carousel-nav { padding: 0.5rem; font-size: 1rem; }
+            .feature-card { margin-bottom: 1rem; }
+        }
+    </style>
+</head>
+<body class="theme-macrocosmos">
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html" class="logo">GMM</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#resultats-maths">Résultats</a></li>
+                    <li><a href="temoignages.html">Témoignages</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="index.html#contact" class="btn btn-header-action">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Ouvrir le menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="premium-hero">
+            <div class="container">
+                <div class="premium-badge">🏆 Programme Ultra Premium</div>
+                <h1 class="premium-title">BOOT CAMP D'EXCELLENCE</h1>
+                <p class="premium-subtitle">
+                    11 jours d'immersion totale dans un cadre privilégié : Excellence académique en mathématiques, 
+                    sport de haut niveau, entrepreneurship innovant et bien-être optimal. 
+                    Une expérience unique qui transforme les ambitions en réalité.
+                </p>
+                
+                <div class="premium-dates">
+                    <div class="date-option">
+                        <div style="font-size: 1.2rem; margin-bottom: 0.5rem;">SESSION UNIQUE</div>
+                        <div style="font-size: 1.8rem;">7 - 18 JUILLET</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <!-- Carrousel Photos -->
+            <div class="program-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-slide active">
+                        <img src="images/math_clean.jpg" alt="Session de mathématiques intensive dans notre cadre privilégié">
+                        <div class="carousel-caption">
+                            Sessions de mathématiques avancées - Excellence académique dans un environnement inspirant
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/student1.jpg" alt="Formation d'excellence et sport de haut niveau">
+                        <div class="carousel-caption">
+                            Tennis de haut niveau - Développement de l'esprit compétitif et de la discipline
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/student2.jpg" alt="Sessions sport et bien-être dans un cadre privilégié">
+                        <div class="carousel-caption">
+                            Natation - Bien-être physique et mental dans notre piscine privée
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/entre.jpg" alt="Atelier entrepreneurship et innovation">
+                        <div class="carousel-caption">
+                            Entrepreneurship & Innovation - Développement de l'esprit d'entreprise
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/applications.jpg" alt="Développement d'applications et programmation">
+                        <div class="carousel-caption">
+                            Développement d'Apps - Innovation et créativité technologique
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-nav prev" onclick="bootcampChangeSlide(-1)">‹</button>
+                <button class="carousel-nav next" onclick="bootcampChangeSlide(1)">›</button>
+                
+                <div class="carousel-indicators">
+                    <span class="indicator active" onclick="bootcampGoToSlide(0)"></span>
+                    <span class="indicator" onclick="bootcampGoToSlide(1)"></span>
+                    <span class="indicator" onclick="bootcampGoToSlide(2)"></span>
+                    <span class="indicator" onclick="bootcampGoToSlide(3)"></span>
+                    <span class="indicator" onclick="bootcampGoToSlide(4)"></span>
+                </div>
+            </div>
+
+            <!-- Caractéristiques Premium -->
+            <div class="premium-features">
+                <div class="feature-card">
+                    <div class="feature-icon">🧮</div>
+                    <h3 class="feature-title">Mathématiques d'Excellence</h3>
+                    <p class="feature-description">
+                        Programme intensif personnalisé pour anticiper et préparer le programme de l'année à venir focus sur l'organisation et les méthodes de travail.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎾</div>
+                    <h3 class="feature-title">Tennis Haut Niveau</h3>
+                    <p class="feature-description">
+                        Entraînements quotidiens sur courts privés avec coach professionnel. 
+                        Développement de la discipline, concentration et esprit compétitif.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🏊‍♂️</div>
+                    <h3 class="feature-title">Natation Bien-être</h3>
+                    <p class="feature-description">
+                        Sessions de natation dans notre piscine privée. 
+                        Équilibre physique et mental, récupération active et détente.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Entrepreneurship Innovant</h3>
+                    <p class="feature-description">
+                        Création de startup, business plan, pitch deck. 
+                        Développement de l'esprit d'entreprise et vision stratégique.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Développement d'Applications</h3>
+                    <p class="feature-description">
+                        Programmation, design UX/UI, lancement d'apps. 
+                        Compétences techniques du futur et créativité digitale.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🥗</div>
+                    <h3 class="feature-title">Nutrition d'Excellence</h3>
+                    <p class="feature-description">
+                        Repas diététiques préparés par nos chefs spécialisés. 
+                        Optimisation des performances intellectuelles et physiques.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Planning Type -->
+            <div class="schedule-section">
+                <div class="container">
+                    <h2 class="section-title-macro text-center" style="margin-bottom: 3rem;">PLANNING TYPE <span class="highlight-word">D'UNE JOURNÉE</span></h2>
+                    
+                    <div class="schedule-grid">
+                        <div class="schedule-item">
+                            <div class="time-slot">07:00 - 08:00</div>
+                            <div class="activity">Petit-déjeuner diététique</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="time-slot">08:00 - 10:30</div>
+                            <div class="activity">Mathématiques</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="time-slot">10:30 - 11:00</div>
+                            <div class="activity">Pause & Collation</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="time-slot">11:00 - 12:30</div>
+                            <div class="activity">Tennis / Natation</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="time-slot">12:30 - 14:00</div>
+                            <div class="activity">Déjeuner & Repos</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="time-slot">14:00 - 16:00</div>
+                            <div class="activity">Entrepreneurship</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="time-slot">16:00 - 16:30</div>
+                            <div class="activity">Goûter Énergétique</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="time-slot">16:30 - 18:30</div>
+                            <div class="activity">Développement d'Apps</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="time-slot">19:00 - 20:00</div>
+                            <div class="activity">Dîner</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="time-slot">20:00 - 21:00</div>
+                            <div class="activity">Activités Détente</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action Premium -->
+            <div class="premium-cta">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">REJOIGNEZ L'ÉLITE</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
+                    Une expérience transformatrice qui allie excellence académique, sport de haut niveau et innovation entrepreneuriale
+                </p>
+                
+                <div class="cta-price">Programme Complet</div>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">11 jours d'immersion totale</p>
+                
+                <div class="cta-features">
+                    <div class="cta-feature">
+                        <strong>✓ Hébergement de luxe</strong><br>
+                        Cadre privilégié et exclusif
+                    </div>
+                    <div class="cta-feature">
+                        <strong>✓ Coaching personnalisé</strong><br>
+                        Suivi individuel quotidien
+                    </div>
+                    <div class="cta-feature">
+                        <strong>✓ Matériel inclus</strong><br>
+                        Équipements premium fournis
+                    </div>
+                    <div class="cta-feature">
+                        <strong>✓ Certification</strong><br>
+                        Attestation de participation
+                    </div>
+                </div>
+                
+                <a href="index.html#contact" class="btn" style="background: linear-gradient(45deg, var(--gold), #DAA520); color: var(--navy); padding: 1.5rem 3rem; font-size: 1.3rem; font-weight: bold; border-radius: 15px; text-decoration: none; display: inline-block; margin-top: 2rem; transition: all 0.3s ease; box-shadow: 0 10px 25px rgba(218,165,32,0.4);">
+                    📞 Réserver ma place - Demande d'information
+                </a>
+                
+                <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">
+                    Places limitées - Programme sur sélection
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer-macro">
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column footer-logo-column">
+                    <a href="index.html" class="logo footer-logo">GMM</a>
+                    <p>Mentorat d'élite.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <p><a href="mailto:contact@gregmmittel.com">contact@gregmmittel.com</a></p>
+                </div>
+                <div class="footer-column">
+                    <h4>Suivez-nous</h4>
+                    <a href="#" class="social-link">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Greg. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Attendre que le DOM soit complètement chargé
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🎠 Initialisation du carrousel Boot Camp...');
+            
+            let bootcampCurrentSlide = 0;
+            const bootcampSlides = document.querySelectorAll('.carousel-slide');
+            const bootcampIndicators = document.querySelectorAll('.carousel-indicators .indicator');
+            let autoSlideInterval;
+
+            console.log('📊 Éléments trouvés:', {
+                slides: bootcampSlides.length,
+                indicators: bootcampIndicators.length
+            });
+
+            if (bootcampSlides.length === 0) {
+                console.error('❌ Aucun slide trouvé !');
+                return;
+            }
+
+            function bootcampShowSlide(targetIndex) {
+                console.log('👆 Changement vers slide:', targetIndex, 'depuis:', bootcampCurrentSlide);
+                
+                // Retirer la classe active de l'élément actuel
+                bootcampSlides[bootcampCurrentSlide].classList.remove('active');
+                bootcampIndicators[bootcampCurrentSlide].classList.remove('active');
+                
+                // Calculer le nouvel index (gérer les cas négatifs et dépassements)
+                bootcampCurrentSlide = targetIndex;
+                if (bootcampCurrentSlide < 0) {
+                    bootcampCurrentSlide = bootcampSlides.length - 1;
+                }
+                if (bootcampCurrentSlide >= bootcampSlides.length) {
+                    bootcampCurrentSlide = 0;
+                }
+                
+                // Ajouter la classe active au nouvel élément
+                bootcampSlides[bootcampCurrentSlide].classList.add('active');
+                bootcampIndicators[bootcampCurrentSlide].classList.add('active');
+                
+                console.log('✅ Slide activé:', bootcampCurrentSlide);
+            }
+
+            function bootcampChangeSlide(direction) {
+                console.log('🔄 Direction:', direction, 'depuis slide:', bootcampCurrentSlide);
+                const newIndex = bootcampCurrentSlide + direction;
+                bootcampShowSlide(newIndex);
+            }
+
+            function bootcampGoToSlide(targetSlide) {
+                console.log('🎯 Go to slide direct:', targetSlide);
+                bootcampShowSlide(targetSlide);
+            }
+
+            // Rendre les fonctions globales
+            window.bootcampChangeSlide = bootcampChangeSlide;
+            window.bootcampGoToSlide = bootcampGoToSlide;
+
+            // Auto-slide toutes les 5 secondes
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(() => {
+                    console.log('⏰ Auto-slide depuis:', bootcampCurrentSlide);
+                    bootcampChangeSlide(1);
+                }, 5000);
+            }
+
+            // Démarrer l'auto-slide
+            startAutoSlide();
+
+            // Arrêter l'auto-slide au survol
+            const carouselContainer = document.querySelector('.carousel-container');
+            if (carouselContainer) {
+                carouselContainer.addEventListener('mouseenter', () => {
+                    console.log('⏸️ Auto-slide arrêté');
+                    clearInterval(autoSlideInterval);
+                });
+                
+                carouselContainer.addEventListener('mouseleave', () => {
+                    console.log('▶️ Auto-slide repris');
+                    startAutoSlide();
+                });
+            }
+
+            console.log('✅ Carrousel Boot Camp initialisé avec succès !');
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

@@ -1,6 +1,117 @@
 // JavaScript pour les fonctionnalités interactives
 
+// Fonctions globales pour ouvrir les modales depuis le carrousel
+window.testFunctionA = function() {
+    console.log('🔴 FONCTION A APPELÉE - POUR MAELIE');
+    alert('FONCTION A - MAELIE');
+};
+
+window.testFunctionB = function() {
+    console.log('🔵 FONCTION B APPELÉE - POUR 85%');
+    alert('FONCTION B - 85%');
+};
+
+window.testFunctionC = function() {
+    console.log('🟢 FONCTION C APPELÉE - POUR SUPERPROF');
+    alert('FONCTION C - SUPERPROF');
+};
+
+// Fonctions globales pour ouvrir les modales depuis le carrousel
+window.openResultsModal = function() {
+    console.log('🎯 FONCTION APPELÉE: openResultsModal - pour le graphique universités');
+    console.log('🔍 Source de l\'appel:', (new Error()).stack);
+    const modal = document.getElementById('resultatsModal');
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        // Créer le pie chart si la fonction existe
+        setTimeout(() => {
+            const createPieChartFunc = window.createPieChart;
+            if (typeof createPieChartFunc === 'function') {
+                createPieChartFunc();
+            }
+        }, 100);
+        console.log('✅ Modal resultatsModal ouverte');
+    } else {
+        console.error('❌ Modal resultatsModal non trouvée');
+    }
+};
+
+window.openSuperprofModal = function() {
+    console.log('🎯 FONCTION APPELÉE: openSuperprofModal - redirection Superprof');
+    console.log('🔍 Source de l\'appel:', (new Error()).stack);
+    // Rediriger vers le profil Superprof
+    window.open('https://www.superprof.fr/referent-cours-particulier-paris-prof-grand-lycee-engage-contractuellement-resultats.html', '_blank');
+    console.log('✅ Redirection vers Superprof effectuée');
+};
+
+window.openVideoModal = function() {
+    console.log('🎯 FONCTION APPELÉE: openVideoModal - pour le slide Maelie');
+    console.log('🔍 Source de l\'appel:', (new Error()).stack);
+    const modal = document.getElementById('satModal');
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        console.log('✅ Modal satModal (Maelie) ouverte');
+    } else {
+        console.error('❌ Modal satModal non trouvée');
+    }
+};
+
+window.openMaelieVideo = function() {
+    console.log('🎯 FONCTION APPELÉE: openMaelieVideo - pour la vidéo de Maelie');
+    const modal = document.getElementById('satModal');
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        console.log('✅ Modal satModal (vidéo Maelie) ouverte');
+    } else {
+        console.error('❌ Modal satModal non trouvée');
+    }
+};
+
+// Nouvelles fonctions spécifiques au carrousel pour éviter les conflits
+window.carouselOpenVideoModal = function() {
+    console.log('🎯 CARROUSEL - FONCTION APPELÉE: carouselOpenVideoModal - pour Maelie');
+    const modal = document.getElementById('satModal');
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        console.log('✅ CARROUSEL - Modal satModal (Maelie) ouverte');
+    } else {
+        console.error('❌ CARROUSEL - Modal satModal non trouvée');
+    }
+};
+
+window.carouselOpenSuperprofModal = function() {
+    console.log('🎯 CARROUSEL - FONCTION APPELÉE: carouselOpenSuperprofModal - redirection Superprof');
+    window.open('https://www.superprof.fr/referent-cours-particulier-paris-prof-grand-lycee-engage-contractuellement-resultats.html', '_blank');
+    console.log('✅ CARROUSEL - Redirection vers Superprof effectuée');
+};
+
+window.carouselOpenResultsModal = function() {
+    console.log('🎯 CARROUSEL - FONCTION APPELÉE: carouselOpenResultsModal - pour le graphique universités');
+    const modal = document.getElementById('resultatsModal');
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        // Créer le pie chart si la fonction existe
+        setTimeout(() => {
+            const createPieChartFunc = window.createPieChart;
+            if (typeof createPieChartFunc === 'function') {
+                createPieChartFunc();
+            }
+        }, 100);
+        console.log('✅ CARROUSEL - Modal resultatsModal ouverte');
+    } else {
+        console.error('❌ CARROUSEL - Modal resultatsModal non trouvée');
+    }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Supprimer tous les event listeners qui pourraient interférer avec le carrousel
+    console.log('🚀 Initialisation sans interference...');
+    
     // Gestion personnalisée du scroll pour les liens d'ancrage
     function handleAnchorLinks() {
         const links = document.querySelectorAll('a[href^="#"]');
@@ -42,10 +153,18 @@ document.addEventListener('DOMContentLoaded', () => {
         closeButton: closeButton
     });
 
-    // Test de cliquabilité
-    document.body.addEventListener('click', (e) => {
-        console.log('Click détecté sur:', e.target);
-    });
+    // COMMENTÉ: Ce gestionnaire pourrait interférer avec les onclick du carrousel
+    // document.addEventListener('click', function(e) {
+    //     // Si c'est un clic sur un élément avec onclick dans le carrousel, laisser faire
+    //     if (e.target.closest('.carousel-slide') && e.target.onclick) {
+    //         return; // Laisser l'événement onclick se déclencher normalement
+    //     }
+    //     
+    //     // Si c'est un bouton dans un slide de carrousel, laisser faire aussi
+    //     if (e.target.closest('.carousel-slide') && (e.target.tagName === 'BUTTON' || e.target.closest('button'))) {
+    //         return; // Laisser l'événement se déclencher
+    //     }
+    // });
 
     if (!modal || !resultButton || !closeButton) {
         console.error('Éléments de la modale non trouvés');
@@ -84,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Fonction pour créer le pie chart
-    function createPieChart() {
+    window.createPieChart = function() {
         const data = [
             { label: 'McGill', value: 25 },
             { label: 'Autres', value: 15 },
@@ -215,12 +334,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (openPortfolioBtn) {
         openPortfolioBtn.addEventListener('click', () => openModal(portfolioModal));
     }
-    if (openSuperprofBtn) {
-        openSuperprofBtn.addEventListener('click', () => openModal(superprofModal));
-    }
-    if (openSuperprofBtn2) {
-        openSuperprofBtn2.addEventListener('click', () => openModal(superprofModal));
-    }
     if (openProfileBtn) {
         openProfileBtn.addEventListener('click', () => openModal(profileModal));
     }
@@ -240,7 +353,7 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModal(gemModal);
             closeModal(portfolioModal);
             closeModal(imageModal);
-            closeModal(superprofModal);
+            // closeModal(superprofModal); // COMMENTÉ: cette modale n'existe pas
             closeModal(profileModal);
             closeModal(programmeModal);
             closeModal(schoolsModal);
@@ -267,9 +380,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (event.target === imageModal) {
             closeModal(imageModal);
         }
-        if (event.target === superprofModal) {
-            closeModal(superprofModal);
-        }
+        // if (event.target === superprofModal) {
+        //     closeModal(superprofModal);
+        // } // COMMENTÉ: cette modale n'existe pas
         if (event.target === profileModal) {
             closeModal(profileModal);
         }
@@ -280,74 +393,112 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModal(schoolsModal);
         }
     });
-}); 
+});
 
-// Gestion du carousel d'images - Version générique
-const carousels = {};
+// Gestion des carrousels multiples
+let currentCarouselIndex = 0;
+const carousels = ['carousel-maelie', 'carousel-stats', 'carousel-superprof'];
 
-// Fonction pour changer de slide
-window.changeSlide = function(carouselId, direction) {
-    if (!carousels[carouselId]) {
-        carousels[carouselId] = { currentIndex: 0 };
+window.switchCarousel = function(direction) {
+    console.log('🔄 switchCarousel appelée, direction:', direction);
+    
+    // Cacher le carrousel actuel
+    const currentCarousel = document.getElementById(carousels[currentCarouselIndex]);
+    if (currentCarousel) {
+        currentCarousel.style.display = 'none';
+        currentCarousel.classList.remove('active');
     }
-    
-    const carousel = document.querySelector(`[data-carousel="${carouselId}"]`);
-    if (!carousel) return;
-    
-    const slides = carousel.querySelectorAll('.carousel-slide');
-    const indicators = carousel.querySelectorAll('.indicator');
-    
-    if (slides.length === 0) return;
-    
-    // Retirer la classe active de l'élément actuel
-    slides[carousels[carouselId].currentIndex].classList.remove('active');
-    indicators[carousels[carouselId].currentIndex].classList.remove('active');
     
     // Calculer le nouvel index
-    carousels[carouselId].currentIndex += direction;
+    currentCarouselIndex = (currentCarouselIndex + direction + carousels.length) % carousels.length;
+    console.log('📍 Nouveau carrousel index:', currentCarouselIndex);
     
-    // Gérer les limites (boucle infinie)
-    if (carousels[carouselId].currentIndex >= slides.length) {
-        carousels[carouselId].currentIndex = 0;
-    } else if (carousels[carouselId].currentIndex < 0) {
-        carousels[carouselId].currentIndex = slides.length - 1;
+    // Afficher le nouveau carrousel
+    const newCarousel = document.getElementById(carousels[currentCarouselIndex]);
+    if (newCarousel) {
+        newCarousel.style.display = 'block';
+        newCarousel.classList.add('active');
     }
     
-    // Ajouter la classe active au nouvel élément
-    slides[carousels[carouselId].currentIndex].classList.add('active');
-    indicators[carousels[carouselId].currentIndex].classList.add('active');
+    // Mettre à jour les indicateurs
+    updateCarouselIndicators();
+    
+    console.log('✅ Carrousel changé vers:', carousels[currentCarouselIndex]);
 };
 
-// Fonction pour aller à un slide spécifique
-window.goToSlide = function(carouselId, slideIndex) {
-    if (!carousels[carouselId]) {
-        carousels[carouselId] = { currentIndex: 0 };
+window.goToCarousel = function(index) {
+    console.log('🎯 goToCarousel appelée, index:', index);
+    
+    if (index < 0 || index >= carousels.length) {
+        console.error('❌ Index invalide:', index);
+        return;
     }
     
-    const carousel = document.querySelector(`[data-carousel="${carouselId}"]`);
-    if (!carousel) return;
-    
-    const slides = carousel.querySelectorAll('.carousel-slide');
-    const indicators = carousel.querySelectorAll('.indicator');
-    
-    if (slides.length === 0 || slideIndex < 0 || slideIndex >= slides.length) return;
-    
-    // Retirer la classe active de l'élément actuel
-    slides[carousels[carouselId].currentIndex].classList.remove('active');
-    indicators[carousels[carouselId].currentIndex].classList.remove('active');
+    // Cacher le carrousel actuel
+    const currentCarousel = document.getElementById(carousels[currentCarouselIndex]);
+    if (currentCarousel) {
+        currentCarousel.style.display = 'none';
+        currentCarousel.classList.remove('active');
+    }
     
     // Définir le nouvel index
-    carousels[carouselId].currentIndex = slideIndex;
+    currentCarouselIndex = index;
     
-    // Ajouter la classe active au nouvel élément
-    slides[carousels[carouselId].currentIndex].classList.add('active');
-    indicators[carousels[carouselId].currentIndex].classList.add('active');
+    // Afficher le nouveau carrousel
+    const newCarousel = document.getElementById(carousels[currentCarouselIndex]);
+    if (newCarousel) {
+        newCarousel.style.display = 'block';
+        newCarousel.classList.add('active');
+    }
+    
+    // Mettre à jour les indicateurs
+    updateCarouselIndicators();
+    
+    console.log('✅ Carrousel activé:', carousels[currentCarouselIndex]);
 };
 
-// Auto-play optionnel (décommenté si souhaité)
-// setInterval(() => {
-//     changeSlide(1);
-// }, 5000); // Change d'image toutes les 5 secondes 
+function updateCarouselIndicators() {
+    const indicators = document.querySelectorAll('.carousel-indicators .indicator');
+    indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentCarouselIndex);
+    });
+}
+
+// Auto-play pour les carrousels multiples
+document.addEventListener('DOMContentLoaded', function() {
+    let carouselAutoplay;
+    
+    function startCarouselAutoplay() {
+        carouselAutoplay = setInterval(() => {
+            switchCarousel(1);
+        }, 4800); // Change toutes les 4.8 secondes (juste milieu)
+    }
+    
+    function stopCarouselAutoplay() {
+        if (carouselAutoplay) {
+            clearInterval(carouselAutoplay);
+        }
+    }
+    
+    // Démarrer l'auto-play
+    startCarouselAutoplay();
+    
+    // Arrêter l'auto-play quand l'utilisateur interagit avec les carrousels
+    const heroPlaceholder = document.querySelector('.hero-visual-placeholder');
+    if (heroPlaceholder) {
+        heroPlaceholder.addEventListener('mouseenter', stopCarouselAutoplay);
+        heroPlaceholder.addEventListener('mouseleave', startCarouselAutoplay);
+        
+        // Arrêter l'auto-play lors des clics sur la navigation
+        const carouselButtons = heroPlaceholder.querySelectorAll('.carousel-btn, .indicator');
+        carouselButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                stopCarouselAutoplay();
+                setTimeout(startCarouselAutoplay, 8000); // Redémarre après 8 secondes
+            });
+        });
+    }
+});
 
 // Gestion du formulaire de contact
 document.addEventListener('DOMContentLoaded', function() {
@@ -398,4 +549,25 @@ Envoyé depuis le site web Greg M. Mittel
             // this.reset();
         });
     }
+});
+
+// Gestion des FAQ accordéons
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            // Fermer tous les autres éléments FAQ
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle l'élément actuel
+            item.classList.toggle('active');
+        });
+    });
 }); 

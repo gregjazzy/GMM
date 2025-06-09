@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cours particuliers de mathématiques et physique avec Greg. Approche personnalisée, supports inclus, suivi régulier et préparation aux examens.">
+    <meta name="keywords" content="cours particuliers mathématiques, cours physique Paris, professeur particulier, support personnalisé, préparation examens">
+    <title>Cours Particuliers | Greg</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Page cours particuliers - Thème macrocosmos harmonisé */
+        .cours-page {
+            background: var(--macro-bg);
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: var(--macro-text-primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .page-header .highlight {
+            color: var(--macro-text-highlight-pink);
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: var(--macro-text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Styles pour la section Superprof harmonisée */
+        .superprof-integrated-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, 
+                rgba(13, 13, 15, 0.95) 0%, 
+                rgba(26, 26, 29, 0.9) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 105, 180, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            backdrop-filter: blur(20px);
+        }
+
+        .superprof-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .superprof-header h2 {
+            color: var(--macro-text-primary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .superprof-header p {
+            color: var(--macro-text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .ambassador-badge-macro {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            background: linear-gradient(135deg, 
+                var(--macro-text-highlight-pink) 0%, 
+                var(--macro-text-highlight-purple) 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3);
+        }
+
+        .badge-icon {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .badge-content h3 {
+            color: white;
+            font-weight: bold;
+            margin: 0 0 0.5rem 0;
+            font-size: 1.3rem;
+        }
+
+        .badge-content p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        .superprof-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-item-macro {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem 1rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 105, 180, 0.2);
+        }
+
+        .stat-item-macro:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(255, 105, 180, 0.3);
+            border-color: rgba(255, 105, 180, 0.4);
+        }
+
+        .stat-item-macro.highlight-stat {
+            border: 2px solid var(--macro-text-highlight-pink);
+            background: linear-gradient(135deg, 
+                rgba(13, 13, 15, 0.95) 0%, 
+                rgba(26, 26, 29, 0.9) 50%, 
+                rgba(18, 18, 22, 0.95) 100%);
+            box-shadow: 
+                0 8px 25px rgba(0,0,0,0.3),
+                0 2px 8px rgba(255, 105, 180, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--macro-text-highlight-pink);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Couleur de texte spécifique pour la carte mise en valeur */
+        .stat-item-macro.highlight-stat .stat-label {
+            color: var(--macro-text-primary);
+        }
+
+        .stat-stars {
+            color: #FFD700;
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .stat-perfect {
+            color: var(--macro-text-highlight-blue);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .stat-period {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .superprof-quote-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--macro-text-highlight-pink);
+            margin: 2rem 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .superprof-quote-section blockquote {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .superprof-actions {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .superprof-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .btn-contact-highlight {
+            background: linear-gradient(135deg, 
+                var(--macro-text-highlight-pink) 0%, 
+                var(--macro-text-highlight-purple) 100%) !important;
+            color: white !important;
+            padding: 15px 30px !important;
+            font-size: 1.1rem !important;
+            font-weight: bold !important;
+            border: none !important;
+            border-radius: 12px !important;
+            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4) !important;
+            transform: scale(1.05);
+            animation: pulse 2s infinite;
+            text-decoration: none !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .btn-contact-highlight:hover {
+            transform: scale(1.08) !important;
+            box-shadow: 0 12px 35px rgba(255, 105, 180, 0.6) !important;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4); }
+            50% { box-shadow: 0 12px 35px rgba(255, 105, 180, 0.6); }
+            100% { box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4); }
+        }
+
+        .btn-secondary-macro {
+            background: linear-gradient(135deg, 
+                var(--macro-text-highlight-blue) 0%, 
+                var(--macro-text-highlight-purple) 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(138, 138, 255, 0.3);
+        }
+
+        .btn-secondary-macro:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(138, 138, 255, 0.4);
+        }
+
+        .action-note {
+            color: var(--macro-text-secondary);
+            font-size: 0.95rem;
+            margin-top: 1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Sections de contenu harmonisées */
+        .content-section {
+            background: rgba(13, 13, 15, 0.8);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 105, 180, 0.3);
+        }
+        
+        .content-section h2 {
+            color: var(--macro-text-highlight-pink);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section h3 {
+            color: var(--macro-text-highlight-blue);
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+        
+        .content-section p, .content-section li {
+            color: var(--macro-text-primary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .content-section ul {
+            padding-left: 1.5rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, 
+                rgba(255, 105, 180, 0.15), 
+                rgba(138, 138, 255, 0.15));
+            border: 2px solid rgba(255, 105, 180, 0.4);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .superprof-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-contact-highlight,
+            .btn-secondary-macro {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body class="theme-macrocosmos">
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html" class="logo">GMM</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#resultats-maths">Résultats</a></li>
+                    <li><a href="temoignages.html">Témoignages</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="index.html#contact" class="btn btn-header-action">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Ouvrir le menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="cours-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>COURS <span class="highlight">PARTICULIERS</span></h1>
+                <p class="page-subtitle">Des cours personnalisés de mathématiques et physique pour familles exigeantes, alliant excellence et bienveillance pour briller et atteindre ses objectifs.</p>
+            </div>
+
+            <!-- Section Superprof harmonisée -->
+            <div class="superprof-integrated-section">
+                <div class="superprof-stats-grid">
+                    <div class="stat-item-macro highlight-stat">
+                        <div class="stat-number">374</div>
+                        <div class="stat-label">avis certifiés</div>
+                        <div class="stat-stars">★★★★★</div>
+                        <div class="stat-perfect">noté 5/5</div>
+                    </div>
+                    <div class="stat-item-macro">
+                        <div class="stat-number">1400+</div>
+                        <div class="stat-label">élèves formés depuis 2010</div>
+                    </div>
+                    <div class="stat-item-macro">
+                        <div class="stat-number">26000+</div>
+                        <div class="stat-label">heures de cours dispensées</div>
+                    </div>
+                </div>
+
+                <div class="superprof-quote-section">
+                    <blockquote>
+                        "★ Un bon prof est avant tout un bon pédagogue ★. Mon approche est pragmatique et basée sur une vraie proximité relationnelle, proximité indispensable afin d'entraîner l'élève et de le motiver."
+                    </blockquote>
+                </div>
+
+                <div class="superprof-actions">
+                    <div class="superprof-buttons">
+                        <a href="https://www.superprof.fr/referent-cours-particulier-paris-prof-grand-lycee-engage-contractuellement-resultats.html" target="_blank" class="btn-secondary-macro">
+                            📖 Voir tous mes 374 avis
+                        </a>
+                        <a href="index.html#contact" class="btn-contact-highlight">
+                            ✉️ Me contacter maintenant
+                        </a>
+                    </div>
+                    <p class="action-note">Découvrez l'intégralité de mon parcours ou contactez-moi directement afin de discuter de vos objectifs</p>
+                </div>
+            </div>
+
+            <!-- Sections de contenu harmonisées -->
+            <div class="content-section">
+                <h2>Pourquoi choisir mes cours particuliers ?</h2>
+                
+                <div class="highlight-box">
+                    <h3>🎯 Approche Personnalisée</h3>
+                    <p>Chaque cours est adapté au niveau, aux objectifs et au rythme d'apprentissage de l'élève. Diagnostic initial complet pour identifier les lacunes et les points forts. La priorité est bien entendu d'assurer de meilleurs résultats mais également de l'aider à se définir dans son projet d'avenir.</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>📚 Supports Inclus</h3>
+                    <p>Fiches de révision personnalisées, exercices ciblés, et accès à une banque d'exercices en ligne. Tout le matériel pédagogique est fourni, également DS des années précédentes par niveau et école.</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>📊 Suivi Régulier</h3>
+                    <p>Bilan mensuel détaillé envoyé aux parents avec progression, points travaillés et objectifs suivants. Ajustement constant de la pédagogie.</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>🏆 Préparation Examens</h3>
+                    <p>Préparation spécifique aux examens (SAT) (Brevet, BAC, concours grandes écoles) avec méthodes éprouvées et stratégies de réussite.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Méthodologie éprouvée</h2>
+                
+                <h3>Résultats exceptionnels</h3>
+                <ul>
+                    <li><strong>85%</strong> de mes élèves intègrent une école ou université du top 30 mondial</li>
+                    <li><strong>30%</strong> de mes élèves se classent dans le top 3 de leur classe après un an de suivi</li>
+                    <li><strong>1600+</strong> élèves suivis avec succès depuis 2010</li>
+                    <li><strong>29000+</strong> heures de cours dispensées</li>
+                </ul>
+                
+                <h3>Accompagnement complet</h3>
+                <p>Au-delà des mathématiques et de la physique, je développe :</p>
+                <ul>
+                    <li>La confiance en soi et la motivation</li>
+                    <li>Des méthodes de travail efficaces</li>
+                    <li>L'autonomie dans l'apprentissage</li>
+                    <li>La gestion du stress et des examens</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center; margin: 3rem 0;">
+                <a href="index.html#contact" class="btn-contact-highlight">Me contacter maintenant</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer-macro">
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column footer-logo-column">
+                    <a href="index.html" class="logo footer-logo">GMM</a>
+                    <p>Mentorat d'élite.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <p><a href="mailto:contact@gregmmittel.com">contact@gregmmittel.com</a></p>
+                </div>
+                <div class="footer-column">
+                    <h4>Suivez-nous</h4>
+                    <a href="#" class="social-link">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Greg. M Mittel. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html> 
