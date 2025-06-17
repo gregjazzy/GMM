@@ -112,6 +112,38 @@ document.addEventListener('DOMContentLoaded', () => {
     // Supprimer tous les event listeners qui pourraient interférer avec le carrousel
     console.log('🚀 Initialisation sans interference...');
     
+    // Gestion du menu mobile
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    
+    if (mobileMenuToggle && mainNav) {
+        mobileMenuToggle.addEventListener('click', function() {
+            console.log('🍔 Menu mobile cliqué');
+            this.classList.toggle('active');
+            mainNav.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+        
+        // Fermer le menu quand on clique sur un lien
+        const navLinks = mainNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                mainNav.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+        
+        // Fermer le menu avec la touche Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mainNav.classList.contains('active')) {
+                mobileMenuToggle.classList.remove('active');
+                mainNav.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        });
+    }
+    
     // Gestion personnalisée du scroll pour les liens d'ancrage
     function handleAnchorLinks() {
         const links = document.querySelectorAll('a[href^="#"]');
@@ -343,6 +375,20 @@ document.addEventListener('DOMContentLoaded', function() {
     if (openSchoolsBtn) {
         openSchoolsBtn.addEventListener('click', () => openModal(schoolsModal));
     }
+    
+    // Gestionnaires pour les boutons Superprof (redirection)
+    if (openSuperprofBtn) {
+        openSuperprofBtn.addEventListener('click', () => {
+            console.log('🎯 Clic sur openSuperprofBtn - redirection Superprof');
+            window.open('https://www.superprof.fr/referent-cours-particulier-paris-prof-grand-lycee-engage-contractuellement-resultats.html', '_blank');
+        });
+    }
+    if (openSuperprofBtn2) {
+        openSuperprofBtn2.addEventListener('click', () => {
+            console.log('🎯 Clic sur openSuperprofBtn2 - redirection Superprof');
+            window.open('https://www.superprof.fr/referent-cours-particulier-paris-prof-grand-lycee-engage-contractuellement-resultats.html', '_blank');
+        });
+    }
 
     // Gestionnaire d'événements pour la fermeture
     closeButtons.forEach(button => {
@@ -570,4 +616,265 @@ document.addEventListener('DOMContentLoaded', function() {
             item.classList.toggle('active');
         });
     });
-}); 
+});
+
+// ===== OPTIMISATIONS MOBILE =====
+
+// Détection du type d'appareil
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+// Optimisations pour les appareils tactiles
+if (isTouchDevice) {
+    // Amélioration des interactions tactiles
+    document.addEventListener('touchstart', function() {}, { passive: true });
+    
+    // Optimisation du scroll sur mobile
+    let ticking = false;
+    
+    function updateScrollPosition() {
+        // Logique de scroll optimisée
+        ticking = false;
+    }
+    
+    document.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(updateScrollPosition);
+            ticking = true;
+        }
+    }, { passive: true });
+    
+    // Gestion améliorée des modales sur mobile
+    function openModalMobile(modal) {
+        if (modal) {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+            
+            // Prévenir le scroll en arrière-plan sur iOS
+            modal.addEventListener('touchmove', function(e) {
+                if (e.target === modal) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+        }
+    }
+    
+    function closeModalMobile(modal) {
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+        }
+    }
+    
+    // Remplacer les fonctions de modal existantes sur mobile
+    window.openResultsModal = function() {
+        const modal = document.getElementById('resultatsModal');
+        openModalMobile(modal);
+        setTimeout(() => {
+            const createPieChartFunc = window.createPieChart;
+            if (typeof createPieChartFunc === 'function') {
+                createPieChartFunc();
+            }
+        }, 100);
+    };
+    
+    window.openVideoModal = function() {
+        const modal = document.getElementById('satModal');
+        openModalMobile(modal);
+    };
+    
+    window.openMaelieVideo = function() {
+        const modal = document.getElementById('satModal');
+        openModalMobile(modal);
+    };
+    
+    // Gestion des boutons de fermeture sur mobile
+    document.addEventListener('DOMContentLoaded', function() {
+        const closeButtons = document.querySelectorAll('.close-modal');
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const modal = this.closest('.modal');
+                closeModalMobile(modal);
+            });
+        });
+        
+        // Fermeture par tap en dehors de la modal
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModalMobile(modal);
+                }
+            });
+        });
+    });
+}
+
+// Optimisation du carrousel pour mobile
+if (isMobile) {
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    function handleCarouselSwipe() {
+        const carousel = document.querySelector('.hero-carousel');
+        if (!carousel) return;
+        
+        carousel.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        carousel.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipeGesture();
+        }, { passive: true });
+        
+        function handleSwipeGesture() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe gauche - slide suivant
+                    if (typeof nextSlide === 'function') {
+                        nextSlide();
+                    }
+                } else {
+                    // Swipe droite - slide précédent
+                    if (typeof prevSlide === 'function') {
+                        prevSlide();
+                    }
+                }
+            }
+        }
+    }
+    
+    document.addEventListener('DOMContentLoaded', handleCarouselSwipe);
+}
+
+// Optimisation des performances sur mobile
+if (isMobile) {
+    // Réduction de la fréquence des animations
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (reducedMotion) {
+        // Désactiver les animations coûteuses
+        document.documentElement.style.setProperty('--animation-duration', '0s');
+    }
+    
+    // Optimisation des images lazy loading
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        observer.unobserve(img);
+                    }
+                }
+            });
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyImages = document.querySelectorAll('img[data-src]');
+            lazyImages.forEach(img => imageObserver.observe(img));
+        });
+    }
+    
+    // Optimisation du resize
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            // Recalculer les dimensions si nécessaire
+            const event = new Event('optimizedResize');
+            window.dispatchEvent(event);
+        }, 250);
+    });
+}
+
+// Amélioration de l'accessibilité mobile
+document.addEventListener('DOMContentLoaded', function() {
+    // Améliorer la navigation au clavier sur mobile
+    const focusableElements = document.querySelectorAll(
+        'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+    );
+    
+    focusableElements.forEach(element => {
+        // Améliorer la visibilité du focus
+        element.addEventListener('focus', function() {
+            this.style.outline = '2px solid #d4af37';
+            this.style.outlineOffset = '2px';
+        });
+        
+        element.addEventListener('blur', function() {
+            this.style.outline = '';
+            this.style.outlineOffset = '';
+        });
+    });
+    
+    // Gestion des formulaires sur mobile
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+        const inputs = form.querySelectorAll('input, textarea, select');
+        
+        inputs.forEach(input => {
+            // Prévenir le zoom sur iOS
+            if (isMobile && input.type !== 'file') {
+                input.style.fontSize = '16px';
+            }
+            
+            // Améliorer l'UX des champs requis
+            input.addEventListener('invalid', function() {
+                this.style.borderColor = '#dc3545';
+                this.style.boxShadow = '0 0 0 0.2rem rgba(220, 53, 69, 0.25)';
+            });
+            
+            input.addEventListener('input', function() {
+                if (this.validity.valid) {
+                    this.style.borderColor = '';
+                    this.style.boxShadow = '';
+                }
+            });
+        });
+    });
+});
+
+// Optimisation des vidéos sur mobile
+if (isMobile) {
+    document.addEventListener('DOMContentLoaded', function() {
+        const videos = document.querySelectorAll('video');
+        
+        videos.forEach(video => {
+            // Optimiser le chargement des vidéos sur mobile
+            video.preload = 'metadata';
+            
+            // Gérer la lecture automatique sur mobile
+            if (video.hasAttribute('autoplay')) {
+                video.muted = true; // Nécessaire pour l'autoplay sur mobile
+            }
+            
+            // Optimiser les contrôles sur mobile
+            video.addEventListener('loadedmetadata', function() {
+                if (this.videoWidth > window.innerWidth) {
+                    this.style.width = '100%';
+                    this.style.height = 'auto';
+                }
+            });
+        });
+    });
+}
+
+// Debug mobile (à supprimer en production)
+if (isMobile && window.location.search.includes('debug=true')) {
+    console.log('🔧 Mode debug mobile activé');
+    console.log('📱 User Agent:', navigator.userAgent);
+    console.log('👆 Touch Device:', isTouchDevice);
+    console.log('📏 Screen:', window.screen.width + 'x' + window.screen.height);
+    console.log('🖼️ Viewport:', window.innerWidth + 'x' + window.innerHeight);
+} 

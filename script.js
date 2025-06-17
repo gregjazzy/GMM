@@ -294,4 +294,50 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Gestion du carrousel principal
+    let currentSlide = 0;
+    const slides = ['slide1', 'slide2', 'slide3'];
+
+    function showSlide(index) {
+        // Cacher toutes les slides
+        slides.forEach(slideId => {
+            document.getElementById(slideId).style.display = 'none';
+        });
+        
+        // Retirer la classe active de tous les indicateurs
+        document.querySelectorAll('.carousel-indicators .indicator').forEach(indicator => {
+            indicator.classList.remove('active');
+        });
+        
+        // Afficher la slide demandée
+        document.getElementById(slides[index]).style.display = 'block';
+        
+        // Activer l'indicateur correspondant
+        document.querySelectorAll('.carousel-indicators .indicator')[index].classList.add('active');
+        
+        currentSlide = index;
+    }
+
+    function switchCarousel(direction) {
+        let newIndex = currentSlide + direction;
+        
+        // Gérer la boucle
+        if (newIndex >= slides.length) newIndex = 0;
+        if (newIndex < 0) newIndex = slides.length - 1;
+        
+        showSlide(newIndex);
+    }
+
+    function goToCarousel(index) {
+        showSlide(index);
+    }
+
+    // Initialiser le carrousel
+    showSlide(0);
+    
+    // Rotation automatique toutes les 5 secondes
+    setInterval(() => {
+        switchCarousel(1);
+    }, 5000);
 }); 
