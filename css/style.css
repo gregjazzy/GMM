@@ -1504,9 +1504,11 @@ section[id] {
     .hero-activities-container {
         flex-direction: column;
         align-items: center;
-        gap: 0.5rem; /* Réduit encore plus l'espace entre les éléments */
+        gap: 0.5rem;
         padding: 0;
-        margin-top: -3rem; /* Remonte davantage la section */
+        margin-top: -4.5rem; /* Remonte encore plus la section */
+        position: relative;
+        z-index: 2;
     }
 
     .hero-activities-container .key-activity-item:first-child,
@@ -1553,8 +1555,10 @@ section[id] {
 
     .linking-phrase-container {
         text-align: center;
-        margin-bottom: 0.5rem; /* Réduit encore plus l'espace en bas */
+        margin-bottom: 0; /* Supprime la marge en bas */
         padding: 0 1rem;
+        position: relative;
+        z-index: 1;
     }
     
     .linking-phrase {
@@ -3884,9 +3888,9 @@ section[id] {
 }
 
     .hero-section-macro {
-        padding: 1rem 0 2rem; /* Réduit encore le padding top */
+        padding: 0.5rem 0 2rem; /* Réduit encore plus le padding top */
         min-height: auto;
-        margin-top: 10px;
+        margin-top: 0;
     }
     
     .hero-main-content {
