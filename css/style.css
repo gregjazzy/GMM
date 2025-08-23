@@ -848,14 +848,23 @@ section[id] {
 }
 
 .hero-subtitle {
-    font-size: 18px;
-    max-width: 550px;
-    color: var(--macro-text-primary);
-    font-weight: var(--font-weight-light);
-    line-height: 1.7;
-    margin-top: 1.5rem;
-    margin-bottom: 20px;
-}
+        font-size: 18px;
+        max-width: 550px;
+        color: var(--macro-text-primary);
+        font-weight: var(--font-weight-light);
+        line-height: 1.7;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+        .hero-subtitle {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+    }
 
 .hero-activities-container {
     display: flex;
@@ -1489,9 +1498,9 @@ section[id] {
     .hero-activities-container {
         flex-direction: column;
         align-items: center;
-        gap: 2rem;
+        gap: 1rem; /* Réduit l'espace entre les éléments */
         padding: 0;
-        margin-top: 0;
+        margin-top: -2rem; /* Remonte la section */
     }
 
     .hero-activities-container .key-activity-item:first-child,
@@ -1555,6 +1564,7 @@ section[id] {
     .key-activity-item {
         min-width: 300px;
         max-width: 100%;
+        margin-bottom: 0.5rem; /* Réduit l'espace entre les cartes */
     }
 
     .service-card-macro h3 {
