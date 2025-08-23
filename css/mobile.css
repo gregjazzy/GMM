@@ -5,6 +5,10 @@
     }
 
     .main-header {
+        height: 40px;
+    }
+
+    .main-header {
         padding: 0.5rem 0;
         position: fixed;
         top: 0;
@@ -18,13 +22,18 @@
 
     .hero-section-macro {
         padding: 0;
-        margin-top: 50px;
+        margin-top: 0;
+    }
+
+    .hero-main-content {
+        margin-top: -40px;
     }
 
     .hero-text-content {
-        padding: 1rem;
+        padding: 0;
         margin: 0;
         text-align: center;
+        margin-top: -30px;
     }
 
     .hero-title {
