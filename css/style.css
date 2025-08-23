@@ -3738,7 +3738,7 @@ section[id] {
 @media (max-width: 768px) {
     /* === HEADER MOBILE === */
     .main-header {
-        padding: 1rem 0;
+        padding: 0.5rem 0;
         position: fixed;
         top: 0;
         left: 0;
@@ -3746,7 +3746,7 @@ section[id] {
         z-index: 1000;
         background: rgba(42, 51, 86, 0.95);
         backdrop-filter: blur(10px);
-        height: 80px;
+        height: 60px; /* Réduit la hauteur */
         display: flex;
         align-items: center;
     }
@@ -3857,13 +3857,14 @@ section[id] {
     }
     
     /* === HERO SECTION MOBILE === */
-    body {
-        padding-top: 90px; /* Compenser le header fixe mobile */
-    }
-    
+        body {
+    padding-top: 60px; /* Ajusté pour le nouveau header plus petit */
+}
+
     .hero-section-macro {
-        padding: 2rem 0 3rem;
+        padding: 4rem 0 3rem; /* Augmenté le padding top */
         min-height: auto;
+        margin-top: 30px; /* Plus d'espace pour le titre */
     }
     
     .hero-main-content {
@@ -3882,6 +3883,9 @@ section[id] {
         font-size: 2.2rem;
         line-height: 1.2;
         margin-bottom: 1rem;
+        margin-top: 2rem; /* Ajout d'espace supplémentaire au-dessus du titre */
+        position: relative; /* Pour assurer que le titre reste au-dessus */
+        z-index: 2;
     }
     
     .hero-subtitle, .linking-phrase {
