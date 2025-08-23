@@ -526,21 +526,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Démarrer l'auto-play
-    startCarouselAutoplay();
+    // Désactivé temporairement pour debug
+    // startCarouselAutoplay();
     
     // Arrêter l'auto-play quand l'utilisateur interagit avec les carrousels
     const heroPlaceholder = document.querySelector('.hero-visual-placeholder');
     if (heroPlaceholder) {
         heroPlaceholder.addEventListener('mouseenter', stopCarouselAutoplay);
-        heroPlaceholder.addEventListener('mouseleave', startCarouselAutoplay);
+        heroPlaceholder.addEventListener('mouseleave', stopCarouselAutoplay);
         
         // Arrêter l'auto-play lors des clics sur la navigation
         const carouselButtons = heroPlaceholder.querySelectorAll('.carousel-btn, .indicator');
         carouselButtons.forEach(button => {
             button.addEventListener('click', () => {
                 stopCarouselAutoplay();
-                setTimeout(startCarouselAutoplay, 8000); // Redémarre après 8 secondes
             });
         });
     }

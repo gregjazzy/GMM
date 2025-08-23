@@ -293,16 +293,18 @@ section[id] {
 
 .hero-main-content {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    margin-bottom: 40px;
+    gap: 4rem;
+    margin: 3rem 0;
+    padding-top: 2rem;
 }
 
 .hero-text-content {
     flex-basis: 45%;
     z-index: 2;
-    margin-top: 1.5rem;
-    margin-right: 2rem;
+    padding-top: 1rem;
+    margin-right: 0;
 }
 
 .hero-title, .hero-subtitle {
@@ -311,12 +313,12 @@ section[id] {
 }
 
 .hero-visual-placeholder {
-    flex-basis: 53%;
+    flex-basis: 50%;
     height: auto;
     display: flex;
     justify-content: center;
-    align-items: center;
-    transform: scale(0.88) translateX(-20px) translateY(10px);
+    align-items: flex-start;
+    transform: scale(0.95) translateX(0) translateY(0);
     margin-top: 0;
     position: relative;
     overflow: visible;
@@ -842,6 +844,8 @@ section[id] {
     color: var(--macro-text-primary);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    position: relative;
+    z-index: 10;
 }
 
 .hero-title .gradient-word {
@@ -3803,6 +3807,63 @@ section[id] {
 
 /* Smartphones (max-width: 768px) */
 @media (max-width: 768px) {
+    /* === HEADER MOBILE === */
+    .main-header {
+        padding: 0.5rem 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(42, 51, 86, 0.95);
+        backdrop-filter: blur(10px);
+        height: 60px;
+    }
+
+    /* === HERO SECTION MOBILE === */
+    body {
+        padding-top: 80px !important;
+    }
+
+    .hero-section-macro {
+        padding: 2rem 0;
+        min-height: auto;
+        margin-top: 0;
+    }
+
+    .hero-main-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .hero-text-content {
+        order: 1;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1rem;
+        margin: 0;
+        text-align: center;
+    }
+
+    h1.hero-title {
+        font-size: 2.5rem !important;
+        line-height: 1.3;
+        margin: 2rem 0 1.5rem 0;
+        color: #FFFFFF !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 800 !important;
+        width: 100%;
+        max-width: none;
+        text-align: center;
+        display: block;
+        position: relative;
+        z-index: 10;
+    }
+
     /* Styles pour les témoignages en mobile */
     .testimonials-grid {
         display: flex !important;
@@ -4381,9 +4442,6 @@ section[id] {
 
 /* Très petits écrans (max-width: 480px) */
 @media (max-width: 480px) {
-    .hero-title {
-        font-size: 1.8rem;
-    }
     
     .hero-subtitle, .linking-phrase {
         font-size: 1rem;
@@ -4442,9 +4500,6 @@ section[id] {
 
 /* Très petits écrans (max-width: 360px) */
 @media (max-width: 360px) {
-    .hero-title {
-        font-size: 1.6rem;
-    }
     
     .hero-carousel {
         height: 250px;

@@ -32,9 +32,10 @@
     }
 
     .hero-title {
-        font-size: 1.8rem;
+        font-size: 1.008rem;  /* 1.26rem réduit de 20% */
         line-height: 1.2;
         margin: 0 0 0.8rem;
+        transform: translateY(-20px);
     }
 
     .hero-subtitle {
