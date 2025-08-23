@@ -1498,9 +1498,9 @@ section[id] {
     .hero-activities-container {
         flex-direction: column;
         align-items: center;
-        gap: 1rem; /* Réduit l'espace entre les éléments */
+        gap: 0.5rem; /* Réduit encore plus l'espace entre les éléments */
         padding: 0;
-        margin-top: -2rem; /* Remonte la section */
+        margin-top: -3rem; /* Remonte davantage la section */
     }
 
     .hero-activities-container .key-activity-item:first-child,
@@ -1547,7 +1547,7 @@ section[id] {
 
     .linking-phrase-container {
         text-align: center;
-        margin-bottom: 1.5rem; /* Réduit l'espace en bas */
+        margin-bottom: 0.5rem; /* Réduit encore plus l'espace en bas */
         padding: 0 1rem;
     }
     
@@ -3878,9 +3878,9 @@ section[id] {
 }
 
     .hero-section-macro {
-        padding: 2rem 0 2rem; /* Réduit le padding */
+        padding: 1rem 0 2rem; /* Réduit encore le padding top */
         min-height: auto;
-        margin-top: 20px;
+        margin-top: 10px;
     }
     
     .hero-main-content {
