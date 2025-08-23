@@ -109,6 +109,23 @@ window.carouselOpenResultsModal = function() {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Vérifier s'il y a une cible de scroll stockée
+    const scrollTarget = sessionStorage.getItem('scrollTarget');
+    if (scrollTarget) {
+        sessionStorage.removeItem('scrollTarget');
+        const target = document.getElementById(scrollTarget);
+        if (target) {
+            setTimeout(() => {
+                const headerHeight = 300; // Augmentation de l'offset pour mieux voir les cartes
+                const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - headerHeight;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }, 100);
+        }
+    }
     // Supprimer tous les event listeners qui pourraient interférer avec le carrousel
     console.log('🚀 Initialisation sans interference...');
     
@@ -146,24 +163,44 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Gestion personnalisée du scroll pour les liens d'ancrage
     function handleAnchorLinks() {
-        const links = document.querySelectorAll('a[href^="#"]');
+        const links = document.querySelectorAll('a[href^="#"], a[href*="index.html#"]');
         
         links.forEach(link => {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
+                
+                // Si le lien contient index.html#, on est sur une autre page
+                if (href.includes('index.html#')) {
+                    // Stocker la section cible dans sessionStorage
+                    const target = href.split('#')[1];
+                    sessionStorage.setItem('scrollTarget', target);
+                    return; // Laisser la navigation se faire normalement
+                }
+                
                 if (href === '#' || href === '') return;
                 
                 e.preventDefault();
                 
+                const headerHeight = 80;
                 const target = document.querySelector(href);
                 if (target) {
-                    const headerHeight = 80; // Ajustement très fin pour positionnement parfait
-                    const offsetTop = target.offsetTop - headerHeight;
-                    
+                    const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerHeight;
                     window.scrollTo({
-                        top: offsetTop,
+                        top: offsetPosition,
                         behavior: 'smooth'
                     });
+                } else {
+                    // Pour les autres liens, comportement normal
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const headerHeight = 80;
+                        const offsetTop = target.offsetTop - headerHeight;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             });
         });
