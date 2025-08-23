@@ -4,7 +4,7 @@
   "description": "Site web promotionnel pour Sparkle & Excellence by Greg - Mentorat d'élite",
   "main": "index.js",
   "scripts": {
-    "start": "http-server -p 3000"
+    "start": "http-server -p 3001 -c-1 --no-dotfiles"
   },
   "devDependencies": {
     "http-server": "^14.1.1"
