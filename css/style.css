@@ -1555,10 +1555,41 @@ section[id] {
 
     .linking-phrase-container {
         text-align: center;
-        margin-bottom: 0; /* Supprime la marge en bas */
+        margin: 0 auto;
+        max-width: 600px;
         padding: 0 1rem;
         position: relative;
         z-index: 1;
+    }
+
+    .linking-phrase {
+        font-size: 1.3rem;
+        line-height: 1.6;
+        font-weight: 500;
+        margin-bottom: 2rem;
+    }
+
+    .linking-phrase-divider {
+        border-top: 2px solid rgba(255,255,255,0.2);
+        padding-top: 1rem;
+        margin-top: 1rem;
+    }
+
+    @media (max-width: 768px) {
+        .linking-phrase {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .linking-phrase-divider {
+            padding-top: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .linking-phrase-container {
+            margin-top: -2rem;
+        }
     }
     
     .linking-phrase {
