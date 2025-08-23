@@ -757,9 +757,10 @@ section[id] {
 
 @media (max-width: 768px) {
     .hero-carousel {
-        height: 600px !important; /* Augmenté significativement pour mobile */
+        height: 600px !important;
         margin: 0;
         transform: none;
+        min-height: 600px;
     }
     
     .slide-content {
@@ -804,6 +805,7 @@ section[id] {
         height: 100%;
         object-fit: cover;
         border-radius: 12px;
+        min-height: 400px;
     }
 }
 
@@ -3803,9 +3805,10 @@ section[id] {
 @media (max-width: 768px) {
     /* Styles pour les témoignages en mobile */
     .testimonials-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+        width: 100% !important;
     }
     
     .photo-testimonial {
