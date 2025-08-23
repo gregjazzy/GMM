@@ -165,19 +165,24 @@
             transform: translateY(-2px);
         }
         
-        @media (max-width: 768px) {
-            .video-testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .written-testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .superprof-stats {
-                flex-direction: column;
-                gap: 1rem;
-            }
+                    @media (max-width: 768px) {
+                .video-testimonials-grid {
+                    flex-direction: column;
+                    gap: 2rem;
+                }
+                
+                .video-testimonial-item {
+                    width: 100%;
+                }
+                
+                .written-testimonials-grid {
+                    grid-template-columns: 1fr;
+                }
+                
+                .superprof-stats {
+                    flex-direction: column;
+                    gap: 1rem;
+                }
         }
     </style>
 </head>

@@ -433,6 +433,10 @@ section[id] {
 
 .video-slide {
     padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .slide-content:hover {
@@ -753,7 +757,7 @@ section[id] {
 
 @media (max-width: 768px) {
     .hero-carousel {
-        height: 450px !important; /* Augmenté pour mobile */
+        height: 600px !important; /* Augmenté significativement pour mobile */
         margin: 0;
         transform: none;
     }
@@ -795,7 +799,11 @@ section[id] {
     }
     
     .video-slide video {
-        max-width: 300px;
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
     }
 }
 
@@ -3793,6 +3801,27 @@ section[id] {
 
 /* Smartphones (max-width: 768px) */
 @media (max-width: 768px) {
+    /* Styles pour les témoignages en mobile */
+    .testimonials-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .photo-testimonial {
+        width: 100%;
+    }
+    .slide-content .review-text {
+        font-size: 0.8rem;
+        line-height: 1.2;
+        margin: 0.5rem 0;
+    }
+    
+    .slide-caption {
+        font-size: 0.7rem;
+        margin-top: 0.5rem;
+    }
+
     /* === HEADER MOBILE === */
     .main-header {
         padding: 0.5rem 0;
@@ -3913,6 +3942,12 @@ section[id] {
         overflow: hidden;
     }
     
+    /* Témoignages en une colonne pour mobile */
+    .testimonials-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
     /* === HERO SECTION MOBILE === */
         body {
     padding-top: 60px; /* Ajusté pour le nouveau header plus petit */
@@ -3957,15 +3992,18 @@ section[id] {
     .hero-title {
         font-size: 1.8rem; /* Titre plus petit sur mobile */
         line-height: 1.2;
-        margin-bottom: 0.8rem;
-        margin-top: 1rem;
-        position: relative;
-        z-index: 2;
+        margin: 3rem 0 1rem 0;
     }
     
-    .hero-subtitle, .linking-phrase {
-        font-size: 1.1rem;
-        line-height: 1.6;
+    .hero-subtitle {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    .linking-phrase {
+        font-size: 0.35rem;
+        line-height: 1;
+        padding: 0.3rem 0.6rem;
     }
     
     .linking-phrase-container {
