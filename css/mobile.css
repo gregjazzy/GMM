@@ -1,0 +1,77 @@
+/* Styles spécifiques pour mobile */
+@media (max-width: 768px) {
+    body {
+        padding-top: 0;
+    }
+
+    .main-header {
+        padding: 0.5rem 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(42, 51, 86, 0.95);
+        backdrop-filter: blur(10px);
+        height: 50px;
+    }
+
+    .hero-section-macro {
+        padding: 0;
+        margin-top: 50px;
+    }
+
+    .hero-text-content {
+        padding: 1rem;
+        margin: 0;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        margin: 0 0 0.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin: 0.5rem 0;
+    }
+
+    .linking-phrase-container {
+        margin: 0.5rem auto;
+        padding: 0 1rem;
+    }
+
+    .linking-phrase {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-activities-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0;
+        margin-top: -4.5rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-visual-placeholder {
+        order: 2;
+        width: 100%;
+        max-width: 350px;
+        min-height: 250px;
+        margin: 0.5rem auto;
+        transform: none;
+    }
+
+    .key-activity-item {
+        min-width: 300px;
+        max-width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
