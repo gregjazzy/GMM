@@ -6,10 +6,7 @@
 
     .main-header {
         height: 35px;
-    }
-
-    .main-header {
-        padding: 0.5rem 0;
+        padding: 0;
         position: fixed;
         top: 0;
         left: 0;
@@ -17,23 +14,21 @@
         z-index: 1000;
         background: rgba(42, 51, 86, 0.95);
         backdrop-filter: blur(10px);
-        height: 50px;
     }
 
     .hero-section-macro {
         padding: 0;
-        margin-top: 0;
+        margin-top: 35px;
     }
 
     .hero-main-content {
-        margin-top: -70px;
+        margin-top: -90px;
     }
 
     .hero-text-content {
         padding: 0;
         margin: 0;
         text-align: center;
-        margin-top: -50px;
     }
 
     .hero-title {
