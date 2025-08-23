@@ -1538,7 +1538,13 @@ section[id] {
 
     .linking-phrase-container {
         text-align: center;
-        margin-bottom: 60px;
+        margin-bottom: 1.5rem; /* Réduit l'espace en bas */
+        padding: 0 1rem;
+    }
+    
+    .linking-phrase {
+        font-size: 0.95rem; /* Texte plus petit */
+        line-height: 1.4;
     }
 
     .key-activity-title {
@@ -3862,16 +3868,34 @@ section[id] {
 }
 
     .hero-section-macro {
-        padding: 4rem 0 3rem; /* Augmenté le padding top */
+        padding: 2rem 0 2rem; /* Réduit le padding */
         min-height: auto;
-        margin-top: 30px; /* Plus d'espace pour le titre */
+        margin-top: 20px;
     }
     
     .hero-main-content {
         flex-direction: column;
         align-items: center;
-        gap: 2rem;
+        gap: 1rem; /* Réduit l'espace entre les éléments */
         text-align: center;
+    }
+    
+    /* Réorganisation de la mise en page mobile */
+    .hero-visual-placeholder {
+        order: 2; /* Place la vidéo après le titre */
+        width: 100%;
+        max-width: 350px;
+        min-height: 250px; /* Réduit la hauteur */
+        margin: 0.5rem auto;
+        transform: none;
+    }
+    
+    .hero-text-content {
+        order: 1;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0 1rem;
     }
     
     .hero-text-content {
@@ -3880,11 +3904,11 @@ section[id] {
     }
     
     .hero-title {
-        font-size: 2.2rem;
+        font-size: 1.8rem; /* Titre plus petit sur mobile */
         line-height: 1.2;
-        margin-bottom: 1rem;
-        margin-top: 2rem; /* Ajout d'espace supplémentaire au-dessus du titre */
-        position: relative; /* Pour assurer que le titre reste au-dessus */
+        margin-bottom: 0.8rem;
+        margin-top: 1rem;
+        position: relative;
         z-index: 2;
     }
     
