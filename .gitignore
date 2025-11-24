@@ -15,4 +15,10 @@ node_modules/
 
 # Sauvegardes
 *_BACKUP*
-*.bak 
+*.bak
+
+# Vidéos (maintenant hébergées sur Vimeo)
+videos/*.mp4
+videos/*.wfp
+*.mp4
+*.wfp 
